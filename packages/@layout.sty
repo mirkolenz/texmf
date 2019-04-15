@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@layout}
+
+\RequirePackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+% \clearpairofpagestyles
+% \chead{\headmark}
+
+\DeclareOption{title}{\chead{\@title}\ihead{}\ohead{}}
+\DeclareOption{author}{\chead{\@author}\ihead{}\ohead{}}
+\DeclareOption{date}{\chead{\@date}\ihead{}\ohead{}}
+\DeclareOption{line}{\KOMAoptions{headsepline}}
+\DeclareOption{lines}{\KOMAoptions{headsepline,footsepline,plainfootsepline}}
+\ProcessOptions\relax

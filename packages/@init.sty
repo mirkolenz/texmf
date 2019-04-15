@@ -1,0 +1,98 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@init}
+
+
+\newif\if@de\@defalse
+\newif\if@beamer\@beamerfalse
+\newif\if@koma\@komafalse
+
+\DeclareOption{koma}{
+	\KOMAoptions{
+		% DIV=calc
+	}
+	\@komatrue
+}
+\DeclareOption{de}{\@detrue}
+\DeclareOption{beamer}{\@beamertrue}
+\DeclareOption{nonumbering}{
+	\setcounter{secnumdepth}{0}
+	\setcounter{tocdepth}{0}
+}
+\ProcessOptions\relax
+
+
+\newcommand{\languageselection}{}
+\if@de
+	\renewcommand{\languageselection}{english,ngerman}
+\else
+	\renewcommand{\languageselection}{ngerman,english}
+\fi
+
+\PassOptionsToPackage{\languageselection}{babel}
+\PassOptionsToPackage{\languageselection}{cleveref}
+
+
+\if@beamer
+\else
+	\PassOptionsToPackage{pdfusetitle, unicode}{hyperref}
+\fi
+
+
+\RequirePackage{babel}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amstext}
+\RequirePackage{amssymb}
+% \RequirePackage{commath}
+\RequirePackage{mathtools}
+\RequirePackage{siunitx}
+
+\RequirePackage{luatexbase} % Hack/Work-around for microtype bug
+\RequirePackage[final, verbose = silent]{microtype}
+\RequirePackage[no-math]{fontspec}
+\RequirePackage[math-style = ISO]{unicode-math}
+\RequirePackage{fontawesome5}
+\RequirePackage{setspace}
+
+\RequirePackage{xurl}
+\RequirePackage{hyperref}
+
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.gif}
+
+\RequirePackage{booktabs}
+\RequirePackage[autostyle = true]{csquotes}
+
+\RequirePackage[sharp]{easylist}
+\if@beamer
+\else
+	\RequirePackage{enumitem}
+\fi
+\RequirePackage[useregional, showseconds=false]{datetime2}
+
+\defaultfontfeatures{
+	Ligatures = Common,
+	Numbers = Lining
+}
+
+\setstretch{1.2}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{.5em}
+
+\newcommand{\maketoc}{
+	{
+		\pagenumbering{roman}
+		\pagestyle{empty}
+		\addtocontents{toc}{\protect\thispagestyle{empty}}
+		\tableofcontents
+		\cleardoublepage
+	}
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000

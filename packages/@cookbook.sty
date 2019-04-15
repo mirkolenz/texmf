@@ -1,0 +1,38 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@cookbook}
+
+
+\newenvironment{zutaten}{
+	\subsubsection*{Zutaten}
+	\begin{tabular}{r@{\hskip 2pt}l@{\hskip 12pt}l}
+}{
+	\end{tabular}
+}
+\newcommand{\zutat}[3]{
+	\(#1\) & #2 & #3\\
+}
+
+\newcommand{\teilrezept}[1]{
+	\subsection*{#1}
+}
+
+\newenvironment{beschreibung}{
+	\subsubsection*{Beschreibung}
+}{}
+
+
+\newenvironment{rezept}[2]{
+	\vspace{6pt}
+	\section{#1}
+		\directlua{
+			anzahl = [[#2]]
+			if (anzahl == "1") then
+				tex.sprint(anzahl, " Portion")
+			else
+				tex.sprint(anzahl, " Portionen")
+			end
+		}
+}{
+	\vspace{6pt}
+	\pagebreak
+}

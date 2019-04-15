@@ -1,0 +1,21 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@fira}
+
+\setmainfont[
+	BoldFont = *-SemiBold,
+	BoldItalicFont = *-SemiBoldItalic,
+]{Fira Sans}
+
+\setsansfont[
+	BoldFont = *-SemiBold,
+	BoldItalicFont = *-SemiBoldItalic
+]{Fira Sans}
+
+\setmonofont{Fira Mono}
+
+\setmathfont{Fira Math}
+\setmathfont[range=\intercal]{Asana Math}
+
+\if@koma
+	\recalctypearea
+\fi

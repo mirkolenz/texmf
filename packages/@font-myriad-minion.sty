@@ -1,0 +1,32 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@minion-myriad}
+
+\setmainfont[
+	Ligatures = TeX,
+	BoldFont = MyriadPro-Semibold,
+	ItalicFont = *-It,
+	BoldItalicFont = *-SemiboldIt
+]{MinionPro}
+
+\setsansfont[
+	Ligatures = TeX,
+	BoldFont = *-Semibold,
+	ItalicFont = *-It,
+	BoldItalicFont = *-SemiboldIt
+]{MyriadPro}
+
+\setmonofont[
+	Ligatures = TeX
+]{Menlo}
+
+
+
+\setmathfont{MnSymbol}
+\setmathfont[range=\mathup]{MinionPro}
+\setmathfont[range=\mathbfup]{MinionPro-Semibold}
+\setmathfont[range=\mathit]{MinionPro-It}
+\setmathfont[range=\mathbfit]{MinionPro-SemiboldIt}
+
+\if@koma
+	\recalctypearea
+\fi

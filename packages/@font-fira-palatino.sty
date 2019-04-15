@@ -1,0 +1,20 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@palatino-fira}
+
+\setmainfont{TeX Gyre Pagella}
+
+\setsansfont[
+	BoldFont = *-SemiBold,
+	BoldItalicFont = *-SemiBoldItalic
+]{Fira Sans}
+
+\setmonofont[
+	Scale = MatchLowercase
+]{Fira Mono}
+
+\setmathfont{TeX Gyre Pagella Math}
+\setmathfont[range=\setminus]{Asana Math}
+
+\if@koma
+	\recalctypearea
+\fi

@@ -1,0 +1,94 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@presentation}
+
+
+\setbeamertemplate{section in toc}[sections numbered]
+\usefonttheme{professionalfonts}
+\renewcommand*{\bibfont}{\footnotesize}
+
+\definecolor{fgColor}{HTML}{fafafa}
+\definecolor{bgColor}{HTML}{23373b}
+\definecolor{highlightColor}{HTML}{afb7b6}
+\setbeamercolor{palette primary}{fg=fgColor,bg=bgColor}
+% \setlength{\leftmargini}{0pt}
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+\setlength\fboxsep{10pt}
+
+
+% \setbeamertemplate{bibliography item}[text]
+
+
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+\tikzstyle{block} = [rectangle, draw, fill=fgColor, text=bgColor, font=\bfseries, text width=5em, text centered, rounded corners, minimum height=3em, ultra thick]
+\tikzstyle{line} = [draw, -latex, ultra thick]
+
+
+
+\RequirePackage[absolute,overlay]{textpos}
+
+\setbeamercolor{framesource}{fg=fgColor}
+\setbeamerfont{framesource}{size=\scriptsize}
+
+\newcommand{\footsource}[1]{\begin{textblock*}{8cm}(8cm,8cm)
+	\begin{beamercolorbox}[ht=0.5cm,left]{framesource}
+		\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \strong{Source:} {#1}
+	\end{beamercolorbox}
+\end{textblock*}}
+
+\newcommand{\source}[1]{
+	\\[-.3em]
+	{
+		\footnotesize
+		\textcolor{highlightColor}{#1}
+	}
+}
+
+
+
+
+\RequirePackage{pdfcomment}
+
+
+\newcommand{\pdfnote}[1]{
+	\begin{textblock*}{1mm}(0mm,0mm)
+		\pdfcomment[icon=note]{#1}
+	\end{textblock*}
+}
+\newcommand{\n}{\textLF}
+\newcommand{\tab}{\textHT}
+
+\newcommand{\pdfmovie}[4]{\href{run:#1}{\framebox{\parbox[c][#3][c]{#2}{\center #4}}}}
+% Example: \pdfmovie{720p25_pedestrian.mov}{6cm}{4cm}{H.264 avi}
+
+
+
+
+
+\setbeamertemplate{bibliography item}{
+	\ifboolexpr{
+		test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+		or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+		or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}
+	}{\setbeamertemplate{bibliography item}[book]}
+	{\ifentrytype{online}
+		{\setbeamertemplate{bibliography item}[online]}
+		{\setbeamertemplate{bibliography item}[article]}
+	}
+	\usebeamertemplate{bibliography item}
+}
+
+\defbibenvironment{bibliography}{
+	\list{}{
+		\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
+		\setlength{\leftmargin}{\labelwidth}
+		\setlength{\labelsep}{\biblabelsep}
+		\addtolength{\leftmargin}{\labelsep}
+		\setlength{\itemsep}{\bibitemsep}
+		\setlength{\parsep}{\bibparsep}
+	}
+}
+{\endlist}
+{\item}

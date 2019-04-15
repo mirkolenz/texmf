@@ -1,0 +1,79 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@math}
+
+
+\allowdisplaybreaks[1]
+
+\addto\extrasngerman{\sisetup{locale = DE}}
+\addto\extrasenglish{\sisetup{locale = US}}
+
+% Adjust spacing of left and right
+% \let\originalleft\left
+% \let\originalright\right
+% \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+% \renewcommand{\right}{\aftergroup\egroup\originalright}
+
+% see commath manual for delimiters
+
+% \newcommand{\fn}{\@ifstar{\@fnstar}{\@fn}}
+% \newcommand{\@fn}[1]{\operatorname{#1}}
+% \newcommand{\@fnstar}[1]{\operatorname*{#1}}
+
+\DeclarePairedDelimiter{\pbr}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\del}{\lparen}{\rparen}
+
+\DeclarePairedDelimiter{\sbr}{\lbrack}{\rbrack}
+
+\DeclarePairedDelimiter{\cbr}{\lbrace}{\rbrace}
+\DeclarePairedDelimiter{\set}{\lbrace}{\rbrace}
+
+\DeclarePairedDelimiter{\envert}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\DeclarePairedDelimiter{\enVert}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\DeclarePairedDelimiter{\intoo}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\intco}{\lbrack}{\rparen}
+\DeclarePairedDelimiter{\intoc}{\lparen}{\rbrack}
+\DeclarePairedDelimiter{\intcc}{\lbrack}{\rbrack}
+
+\DeclareMathOperator{\dif}{d \!}
+\DeclareMathOperator{\Dif}{D} % D \!
+\DeclarePairedDelimiter{\eval}{.}{\vert}
+
+
+\DeclareOption{theorems}{
+	\newenvironment{proof*}{
+		\par
+		\pushQED{\qed}
+	}{
+		\popQED
+	}
+
+	\theoremstyle{plain}
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem*{corollary}{Corollary}
+
+	\theoremstyle{definition}
+	\newtheorem{definition}{Definition}[section]
+	\newtheorem{conjecture}{Conjecture}[section]
+	\newtheorem{example}{Example}[section]
+
+	\theoremstyle{remark}
+	\newtheorem*{remark}{Remark}
+	\newtheorem*{note}{Note}
+	\newtheorem{case}{Case}
+
+	% plain
+	% Theorem, Lemma, Corollary, Proposition, Conjecture, Criterion, Assertion
+
+	% definition
+	% Definition, Condition, Problem, Example, Exercise, Algorithm, Question, Axiom, Property, Assumption, Hypothesis
+
+	% remark
+	% Remark, Note, Notation, Claim, Summary, Acknowledgment, Case, Conclusion
+}
+\ProcessOptions\relax
