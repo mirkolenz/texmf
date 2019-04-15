@@ -1,10 +1,14 @@
 # LaTeX Classes and Packages
 
+Collection of custom classes and packages.
+
 ## Installation
 
 Either place the needed files in your project root or clone the complete repository to `~/texmf/tex/latex/`.
 
 ## Usage
+
+The documents have to be typeset using LuaLaTeX as it relies heavily on modern features.
 
 Exemplary TeX document:
 
