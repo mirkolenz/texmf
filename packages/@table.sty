@@ -9,4 +9,7 @@
 \RequirePackage{float}
 \RequirePackage{caption}
 
+\RequirePackage{ltablex} % combine tabularx and longtable
+
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
