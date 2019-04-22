@@ -9,7 +9,8 @@ Collection of custom classes and packages.
 
 ## Installation
 
-Clone the complete repository to `~/texmf/`.
+Clone the complete repository to your local texmf home directory.
+You can get the path by executing `kpsewhich -var-value=TEXMFHOME`.
 
 ## Usage
 
