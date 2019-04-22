@@ -9,7 +9,7 @@ Collection of custom classes and packages.
 
 ## Installation
 
-Either place the needed files in your project root or clone the complete repository to `~/texmf/tex/latex/`.
+Clone the complete repository to `~/texmf/`.
 
 ## Usage
 
