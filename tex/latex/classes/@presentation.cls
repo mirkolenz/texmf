@@ -18,7 +18,6 @@
 	progressbar=frametitle,
 	% sectionpage=none,
 	subsectionpage=progressbar,
-	background=dark,
 	titleformat frame=allsmallcaps,
 	block=fill
 ]{metropolis}

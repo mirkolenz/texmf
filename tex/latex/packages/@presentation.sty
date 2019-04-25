@@ -6,10 +6,38 @@
 \usefonttheme{professionalfonts}
 \renewcommand*{\bibfont}{\footnotesize}
 
-\definecolor{fgColor}{HTML}{fafafa}
-\definecolor{bgColor}{HTML}{23373b}
-\definecolor{highlightColor}{HTML}{afb7b6}
+% DEFAULT COLOR: Defined on page 44
+
+% WHITE
+\definecolor{fgColor}{HTML}{000000}
+\definecolor{bgColor}{HTML}{FFFFFF}
+\definecolor{highlightColor}{HTML}{444444}
+
+\DeclareOption{light}{
+	\definecolor{fgColor}{HTML}{23373b}
+	\definecolor{bgColor}{HTML}{fafafa}
+	\definecolor{highlightColor}{HTML}{afb7b6}
+}
+\DeclareOption{dark}{
+	\definecolor{fgColor}{HTML}{fafafa}
+	\definecolor{bgColor}{HTML}{23373b}
+	\definecolor{highlightColor}{HTML}{afb7b6}
+}
+\DeclareOption{black}{
+	\definecolor{fgColor}{HTML}{FFFFFF}
+	\definecolor{bgColor}{HTML}{000000}
+	\definecolor{highlightColor}{HTML}{BBBBBB}
+}
+\ProcessOptions\relax
+
+\setbeamercolor{normal text}{fg=fgColor,bg=bgColor}
+\setbeamercolor{alerted text}{fg=highlightColor}
+\setbeamercolor{example text}{fg=highlightColor}
+
 \setbeamercolor{palette primary}{fg=fgColor,bg=bgColor}
+\setbeamercolor{framesource}{fg=fgColor}
+\setbeamerfont{framesource}{size=\scriptsize}
+
 % \setlength{\leftmargini}{0pt}
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
@@ -28,9 +56,6 @@
 
 
 \RequirePackage[absolute,overlay]{textpos}
-
-\setbeamercolor{framesource}{fg=fgColor}
-\setbeamerfont{framesource}{size=\scriptsize}
 
 \newcommand{\footsource}[1]{\begin{textblock*}{8cm}(8cm,8cm)
 	\begin{beamercolorbox}[ht=0.5cm,left]{framesource}
