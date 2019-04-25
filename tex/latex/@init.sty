@@ -4,6 +4,7 @@
 
 \newif\if@de\@defalse
 \newif\if@beamer\@beamerfalse
+\newif\if@overleaf\@overleaffalse
 \newif\if@koma\@komafalse
 
 \DeclareOption{koma}{
@@ -14,6 +15,7 @@
 }
 \DeclareOption{de}{\@detrue}
 \DeclareOption{beamer}{\@beamertrue}
+\DeclareOption{overleaf}{\@overleaftrue}
 \DeclareOption{nonumbering}{
 	\setcounter{secnumdepth}{0}
 	\setcounter{tocdepth}{0}
@@ -52,10 +54,15 @@
 \RequirePackage[final, verbose = silent]{microtype}
 \RequirePackage[no-math]{fontspec}
 \RequirePackage[math-style = ISO]{unicode-math}
-\RequirePackage{fontawesome5}
 \RequirePackage{setspace}
 
-\RequirePackage{xurl}
+\if@overleaf
+	\RequirePackage{fontawesome}
+\else
+	\RequirePackage{fontawesome5}
+	\RequirePackage{xurl}
+\fi
+
 \RequirePackage{hyperref}
 
 \RequirePackage{graphicx}

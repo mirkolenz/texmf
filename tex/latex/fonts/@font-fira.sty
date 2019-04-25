@@ -13,8 +13,12 @@
 
 \setmonofont{Fira Mono}
 
-\setmathfont{Fira Math}
-\setmathfont[range=\intercal]{Asana Math}
+\if@overleaf
+	\setmathfont{Asana Math}
+\else
+	\setmathfont{Fira Math}
+	\setmathfont[range=\intercal]{Asana Math}
+\fi
 
 \if@koma
 	\recalctypearea
