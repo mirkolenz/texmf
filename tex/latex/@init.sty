@@ -2,6 +2,19 @@
 \ProvidesPackage{@init}
 
 
+\RequirePackage{ifxetex,ifluatex}
+\newif\ifluatexorxetex
+\ifxetex
+  \luatexorxetextrue
+\else
+  \ifluatex
+    \luatexorxetextrue
+  \else
+    \luatexorxetexfalse
+  \fi
+\fi
+
+
 \newif\if@de\@defalse
 \newif\if@beamer\@beamerfalse
 \newif\if@overleaf\@overleaffalse
@@ -50,10 +63,20 @@
 \RequirePackage{mathtools}
 \RequirePackage{siunitx}
 
-\RequirePackage{luatexbase} % Hack/Work-around for microtype bug
+\ifluatex
+	\RequirePackage{luatexbase} % Hack/Work-around for microtype bug
+\fi
+
 \RequirePackage[final, verbose = silent]{microtype}
-\RequirePackage[no-math]{fontspec}
-\RequirePackage[math-style = ISO]{unicode-math}
+
+\ifluatexorxetex
+	\RequirePackage[no-math]{fontspec}
+	\RequirePackage[math-style = ISO]{unicode-math}
+	\defaultfontfeatures{
+		Ligatures = Common,
+		Numbers = Lining
+	}
+\fi
 \RequirePackage{setspace}
 
 \if@overleaf
@@ -79,10 +102,6 @@
 \fi
 \RequirePackage[useregional, showseconds=false]{datetime2}
 
-\defaultfontfeatures{
-	Ligatures = Common,
-	Numbers = Lining
-}
 
 \setstretch{1.2}
 \setlength{\parindent}{0em}

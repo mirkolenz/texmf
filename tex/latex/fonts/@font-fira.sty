@@ -1,23 +1,29 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{@font-fira}
 
-\setmainfont[
-	BoldFont = *-SemiBold,
-	BoldItalicFont = *-SemiBoldItalic,
-]{Fira Sans}
+\ifluatexorxetex
+	\setmainfont[
+		BoldFont = * SemiBold,
+		BoldItalicFont = * SemiBold Italic,
+	]{Fira Sans}
 
-\setsansfont[
-	BoldFont = *-SemiBold,
-	BoldItalicFont = *-SemiBoldItalic
-]{Fira Sans}
+	\setsansfont[
+		BoldFont = * SemiBold,
+		BoldItalicFont = * SemiBold Italic
+	]{Fira Sans}
 
-\setmonofont{Fira Mono}
+	\setmonofont{Fira Mono}
 
-\if@overleaf
-	\setmathfont{Asana Math}
+	\if@overleaf
+		\setmathfont{Asana Math}
+	\else
+		\setmathfont{Fira Math}
+		\setmathfont[range=\intercal]{Asana Math}
+	\fi
 \else
-	\setmathfont{Fira Math}
-	\setmathfont[range=\intercal]{Asana Math}
+	\RequirePackage[sfdefault,lining,semibold]{FiraSans}
+	\RequirePackage{FiraMono}
+	\RequirePackage{newtxsf}
 \fi
 
 \if@koma

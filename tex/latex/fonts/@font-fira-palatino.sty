@@ -1,19 +1,26 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{@font-fira-palatino}
 
-\setmainfont{TeX Gyre Pagella}
+\ifluatexorxetex
+	\setmainfont{TeX Gyre Pagella}
 
-\setsansfont[
-	BoldFont = *-SemiBold,
-	BoldItalicFont = *-SemiBoldItalic
-]{Fira Sans}
+	\setsansfont[
+		BoldFont = * SemiBold,
+		BoldItalicFont = * SemiBold Italic
+	]{Fira Sans}
 
-\setmonofont[
-	Scale = MatchLowercase
-]{Fira Mono}
+	\setmonofont[
+		Scale = MatchLowercase
+	]{Fira Mono}
 
-\setmathfont{TeX Gyre Pagella Math}
-\setmathfont[range=\setminus]{Asana Math}
+	\setmathfont{TeX Gyre Pagella Math}
+	\setmathfont[range=\setminus]{Asana Math}
+\else
+	\RequirePackage{tgpagella}
+	\RequirePackage[lining,semibold]{FiraSans}
+	\RequirePackage{FiraMono}
+	\RequirePackage{mathpazo}
+\fi
 
 \if@koma
 	\recalctypearea
