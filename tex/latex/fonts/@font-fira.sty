@@ -15,10 +15,14 @@
 	\setmonofont{Fira Mono}
 
 	\if@overleaf
-		\setmathfont{Asana Math}
+		\setmathfont[Extension = .otf]{Asana-Math}
 	\else
 		\setmathfont{Fira Math}
-		\setmathfont[range=\intercal]{Asana Math}
+
+		\setmathfont[
+			range = \setminus,
+			Extension = .otf
+		]{Asana-Math}
 	\fi
 \else
 	\RequirePackage[sfdefault,lining,semibold]{FiraSans}
