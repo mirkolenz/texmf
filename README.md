@@ -5,7 +5,6 @@ Collection of custom classes and packages.
 ## Requirements
 
 - A recent version of TeX Live
-- LuaLaTeX
 
 ## Installation
 
@@ -36,3 +35,5 @@ Exemplary TeX document:
 
 \end{document}
 ```
+
+The documents can be compiled using pdfLaTeX, LuaLaTeX and XeLaTeX.
