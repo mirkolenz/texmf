@@ -11,28 +11,27 @@
 % WHITE
 \definecolor{fgColor}{HTML}{000000}
 \definecolor{bgColor}{HTML}{FFFFFF}
-\definecolor{highlightColor}{HTML}{444444}
+\definecolor{highlightColor}{HTML}{afb7b6}
+\definecolor{alertColor}{HTML}{EB811B}
+\definecolor{exampleColor}{HTML}{14B03D}
 
+\DeclareOption{black}{
+	\definecolor{fgColor}{HTML}{FFFFFF}
+	\definecolor{bgColor}{HTML}{000000}
+}
 \DeclareOption{light}{
 	\definecolor{fgColor}{HTML}{23373b}
 	\definecolor{bgColor}{HTML}{fafafa}
-	\definecolor{highlightColor}{HTML}{afb7b6}
 }
 \DeclareOption{dark}{
 	\definecolor{fgColor}{HTML}{fafafa}
 	\definecolor{bgColor}{HTML}{23373b}
-	\definecolor{highlightColor}{HTML}{afb7b6}
-}
-\DeclareOption{black}{
-	\definecolor{fgColor}{HTML}{FFFFFF}
-	\definecolor{bgColor}{HTML}{000000}
-	\definecolor{highlightColor}{HTML}{BBBBBB}
 }
 \ProcessOptions\relax
 
 \setbeamercolor{normal text}{fg=fgColor,bg=bgColor}
-\setbeamercolor{alerted text}{fg=highlightColor}
-\setbeamercolor{example text}{fg=highlightColor}
+\setbeamercolor{alerted text}{fg=alertColor}
+\setbeamercolor{example text}{fg=exampleColor}
 
 \setbeamercolor{palette primary}{fg=fgColor,bg=bgColor}
 \setbeamercolor{framesource}{fg=fgColor}
