@@ -1,0 +1,23 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@font-minion}
+
+\ifluatexorxetex
+	\setmainfont{Source Serif Pro}
+	\setsansfont{Source Sans Pro}
+	\setmonofont{Source Code Pro}
+
+	\setmathfont{LatinModern-Math.otf}
+	\setmathfont[range=\mathup/{Latin,latin}]{Source Serif Pro}
+	\setmathfont[range=\mathit/{Latin,latin}]{Source Serif Pro Italic}
+	\setmathfont[range=\mathbfup/{Latin,latin}]{Source Serif Pro Bold}
+	\setmathfont[range=\mathbfit/{Latin,latin}]{Source Serif Pro Bold Italic}
+\else
+	\RequirePackage{sourceserifpro}
+	\RequirePackage{sourcesanspro}
+	\RequirePackage{sourcecodepro}
+	% \RequirePackage{mathpazo}
+\fi
+
+\if@koma
+	\recalctypearea
+\fi

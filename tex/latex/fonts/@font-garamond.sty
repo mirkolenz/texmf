@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{@font-palatino}
+
+\ifluatexorxetex
+	\setmainfont{EB Garamond}
+	\setsansfont[Scale = MatchLowercase]{TeX Gyre Heros}
+	\setmonofont[Scale = MatchLowercase]{TeX Gyre Cursor}
+	\setmathfont{Garamond-Math.otf}
+\else
+	\RequirePackage{ebgaramond}
+	\RequirePackage{tgheros}
+	\RequirePackage{tgcursor}
+	\RequirePackage{ebgara­mond-maths}
+\fi
+
+\if@koma
+	\recalctypearea
+\fi

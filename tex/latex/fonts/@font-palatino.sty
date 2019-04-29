@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{@font-fira-palatino}
+\ProvidesPackage{@font-palatino}
 
 \ifluatexorxetex
 	\setmainfont{TeX Gyre Pagella}
@@ -9,16 +9,10 @@
 		BoldItalicFont = * SemiBold Italic
 	]{Fira Sans}
 
-	\setmonofont[
-		Scale = MatchLowercase
-	]{Fira Mono}
+	\setmonofont[Scale = MatchLowercase]{Fira Mono}
 
 	\setmathfont{TeX Gyre Pagella Math}
-
-	\setmathfont[
-		range = \setminus,
-		Extension = .otf
-	]{Asana-Math}
+	\setmathfont[range = \setminus]{Asana-Math.otf}
 \else
 	\RequirePackage{tgpagella}
 	\RequirePackage[lining,semibold]{FiraSans}
