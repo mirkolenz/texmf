@@ -1,13 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{@presentation}
+\ProvidesPackage{@beamer-config}
 
 
-\setbeamertemplate{section in toc}[sections numbered]
-\usefonttheme{professionalfonts}
-\renewcommand*{\bibfont}{\footnotesize}
+% \newif\if@metropolis\@metropolisfalse
+\newif\if@focus\@focusfalse
 
 % DEFAULT COLOR: Defined on page 44
-
 % WHITE
 \definecolor{fgColor}{HTML}{000000}
 \definecolor{bgColor}{HTML}{FFFFFF}
@@ -28,7 +26,23 @@
 	\definecolor{fgColor}{HTML}{fafafa}
 	\definecolor{bgColor}{HTML}{23373b}
 }
+\DeclareOption{metropolis}{\@metropolistrue}
+\DeclareOption{focus}{\@focustrue}
 \ProcessOptions\relax
+
+
+
+% \if@metropolis
+\usetheme[
+	progressbar=frametitle,
+	% sectionpage=none,
+	subsectionpage=progressbar,
+	titleformat frame=allsmallcaps,
+	block=fill
+]{metropolis}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\usefonttheme{professionalfonts}
 
 \setbeamercolor{normal text}{fg=fgColor,bg=bgColor}
 \setbeamercolor{alerted text}{fg=alertColor}
@@ -37,14 +51,19 @@
 \setbeamercolor{palette primary}{fg=fgColor,bg=bgColor}
 \setbeamercolor{framesource}{fg=fgColor}
 \setbeamerfont{framesource}{size=\scriptsize}
+% \fi
+
+\if@focus
+	\usetheme[numbering=progressbar,nofirafonts]{focus}
+	\colorlet{main}{fgColor}
+	\colorlet{background}{bgColor}
+\fi
+
 
 % \setlength{\leftmargini}{0pt}
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
 \setlength\fboxsep{10pt}
-
-
-% \setbeamertemplate{bibliography item}[text]
 
 
 \RequirePackage{tikz}
@@ -79,7 +98,6 @@
 
 
 
-
 \RequirePackage{pdfcomment}
 
 
@@ -93,33 +111,3 @@
 
 \newcommand{\pdfmovie}[4]{\href{run:#1}{\framebox{\parbox[c][#3][c]{#2}{\center #4}}}}
 % Example: \pdfmovie{720p25_pedestrian.mov}{6cm}{4cm}{H.264 avi}
-
-
-
-
-
-\setbeamertemplate{bibliography item}{
-	\ifboolexpr{
-		test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
-		or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
-		or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}
-	}{\setbeamertemplate{bibliography item}[book]}
-	{\ifentrytype{online}
-		{\setbeamertemplate{bibliography item}[online]}
-		{\setbeamertemplate{bibliography item}[article]}
-	}
-	\usebeamertemplate{bibliography item}
-}
-
-\defbibenvironment{bibliography}{
-	\list{}{
-		\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
-		\setlength{\leftmargin}{\labelwidth}
-		\setlength{\labelsep}{\biblabelsep}
-		\addtolength{\leftmargin}{\labelsep}
-		\setlength{\itemsep}{\bibitemsep}
-		\setlength{\parsep}{\bibparsep}
-	}
-}
-{\endlist}
-{\item}

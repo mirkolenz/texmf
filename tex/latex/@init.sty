@@ -96,11 +96,12 @@
 \RequirePackage[autostyle = true]{csquotes}
 
 \RequirePackage[sharp]{easylist}
+\RequirePackage[useregional, showseconds=false]{datetime2}
+
 \if@beamer
 \else
-	\RequirePackage{enumitem}
+	\RequirePackage[shortlabels]{enumitem}
 \fi
-\RequirePackage[useregional, showseconds=false]{datetime2}
 
 
 \setstretch{1.2}

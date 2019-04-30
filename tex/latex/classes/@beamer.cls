@@ -1,7 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{@presentation}
+\ProvidesClass{@beamer}
 
 \newcommand{\baseclass}{beamer}
+\PassOptionsToPackage{beamer}{@init}
+\PassOptionsToPackage{mathrm=sym}{unicode-math}
+
 \DeclareOption{handout}{
 	\PassOptionsToClass{\CurrentOption}{\baseclass}
 	\PassOptionsToPackage{final}{pdfcomment}
@@ -10,14 +13,3 @@
 \ProcessOptions\relax
 
 \LoadClass[14pt,aspectratio=169]{\baseclass}
-
-\PassOptionsToPackage{mathrm = sym}{unicode-math}
-
-
-\usetheme[
-	progressbar=frametitle,
-	% sectionpage=none,
-	subsectionpage=progressbar,
-	titleformat frame=allsmallcaps,
-	block=fill
-]{metropolis}
