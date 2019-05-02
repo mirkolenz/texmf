@@ -36,7 +36,7 @@
 }
 \DeclareOption{nonumbering}{
 	\setcounter{secnumdepth}{0}
-	\setcounter{tocdepth}{0}
+	% \setcounter{tocdepth}{0}
 }
 \ProcessOptions\relax
 
@@ -123,6 +123,13 @@
 	}
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
+}
+\newcommand{\maketitletoc}{
+	\frontmatter
+	\maketitle
+	\tableofcontents
+	\cleardoublepage
+	\mainmatter
 }
 
 \clubpenalty=10000
