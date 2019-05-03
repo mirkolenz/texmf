@@ -5,6 +5,7 @@
 % \newif\if@metropolis\@metropolisfalse
 \newif\if@focus\@focusfalse
 \newif\if@dark\@darkfalse
+\newif\if@handout\@handoutfalse
 
 % DEFAULT COLOR: Defined on page 44
 % WHITE
@@ -31,6 +32,7 @@
 }
 \DeclareOption{metropolis}{\@metropolistrue}
 \DeclareOption{focus}{\@focustrue}
+\DeclareOption{handout}{\@handouttrue}
 \ProcessOptions\relax
 
 
@@ -100,6 +102,12 @@
 }
 
 
+\if@handout
+	\PassOptionsToPackage{final}{pdfcomment}
+\else
+	% \RequirePackage{pgfpages}
+	% \setbeameroption{show notes on second screen}
+\fi
 
 \RequirePackage{pdfcomment}
 
