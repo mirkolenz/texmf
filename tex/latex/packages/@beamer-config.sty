@@ -5,7 +5,6 @@
 % \newif\if@metropolis\@metropolisfalse
 \newif\if@focus\@focusfalse
 \newif\if@dark\@darkfalse
-\newif\if@handout\@handoutfalse
 
 % DEFAULT COLOR: Defined on page 44
 % WHITE
@@ -32,7 +31,6 @@
 }
 \DeclareOption{metropolis}{\@metropolistrue}
 \DeclareOption{focus}{\@focustrue}
-\DeclareOption{handout}{\@handouttrue}
 \ProcessOptions\relax
 
 
@@ -102,15 +100,18 @@
 }
 
 
-\if@handout
+% Available modes: https://tex.stackexchange.com/questions/263440/what-are-the-available-modes-in-beamer
+\mode<handout>{
 	\PassOptionsToPackage{final}{pdfcomment}
-\else
+}
+\mode<beamer>{
 	% \RequirePackage{pgfpages}
 	% \setbeameroption{show notes on second screen}
-\fi
+}
+
+\setbeamertemplate{note page}{\insertnote}
 
 \RequirePackage{pdfcomment}
-
 
 \newcommand{\pdfnote}[1]{
 	\begin{textblock*}{1mm}(0mm,0mm)

@@ -5,10 +5,6 @@
 \PassOptionsToPackage{beamer}{@init}
 \PassOptionsToPackage{mathrm=sym}{unicode-math}
 
-% \DeclareOption{handout}{
-% 	\PassOptionsToClass{\CurrentOption}{\baseclass}
-% 	\PassOptionsToPackage{final}{pdfcomment}
-% }
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
 \ProcessOptions\relax
 
