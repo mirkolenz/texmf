@@ -102,12 +102,20 @@
 
 \RequirePackage[sharp]{easylist}
 \RequirePackage[useregional, showseconds=false]{datetime2}
-\RequirePackage{syntonly}
+
 
 \if@beamer
 \else
 	\RequirePackage[shortlabels]{enumitem}
 \fi
+
+\newcommand{\enableziffer}{
+	\if@de
+		% isonums
+		\RequirePackage{ziffer}
+	\fi
+}
+
 
 
 \setstretch{1.2}
