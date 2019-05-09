@@ -79,7 +79,11 @@
 
 \RequirePackage[absolute,overlay]{textpos}
 
-\newcommand{\footsource}[1]{\begin{textblock*}{8cm}(8cm,8cm)
+\newcommand{\footsourcewidth}{8cm}
+\newcommand{\footsourcex}{8cm}
+\newcommand{\footsourcey}{8cm}
+
+\newcommand{\footsource}[1]{\begin{textblock*}{\footsourcewidth}(\footsourcex,\footsourcey)
 	\begin{beamercolorbox}[ht=0.5cm,left]{framesource}
 		\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \textbf{Source:} {#1}
 	\end{beamercolorbox}
