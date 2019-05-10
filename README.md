@@ -20,7 +20,7 @@ Exemplary TeX document:
 ```latex
 \documentclass{@article}
 \usepackage[de,nonumbering]{@init}
-\usepackage{@font-fira-palatino}
+\usepackage{@font-palatino}
 
 \title{Lorem Ipsum}
 \author{Lorem Ipsum}
