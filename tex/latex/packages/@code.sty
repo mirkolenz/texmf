@@ -27,16 +27,20 @@
 
 
 \if@shellescape
-	\RequirePackage{minted}
+	\RequirePackage{caption}
+	\RequirePackage[newfloat=true]{minted}
 
 	\setminted{
 		linenos,
 		breaklines,
 		mathescape,
-		autogobble
+		autogobble,
+		framesep = 0.5em
 		% xleftmargin=2em,
 	}
 	\setmintedinline{}
 
 	\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+	\newenvironment{longlisting}{\captionsetup{type=listing}}{}
 \fi
