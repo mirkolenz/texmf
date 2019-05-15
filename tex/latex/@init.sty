@@ -19,6 +19,7 @@
 \newif\if@beamer\@beamerfalse
 \newif\if@overleaf\@overleaffalse
 \newif\if@koma\@komafalse
+\newif\if@shellescape\@shellescapefalse
 
 \DeclareOption{koma}{
 	\KOMAoptions{
@@ -29,6 +30,7 @@
 \DeclareOption{de}{\@detrue}
 \DeclareOption{beamer}{\@beamertrue}
 \DeclareOption{overleaf}{\@overleaftrue}
+\DeclareOption{shellescape}{\@shellescapetrue}
 \DeclareOption{fapro}{
 	\ifluatexorxetex
 		\PassOptionsToPackage{pro}{fontawesome5}

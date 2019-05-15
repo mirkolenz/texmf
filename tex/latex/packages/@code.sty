@@ -3,7 +3,6 @@
 
 
 \RequirePackage{listings}
-
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
 
@@ -24,4 +23,20 @@
 		tabsize = 4,
 		xleftmargin = 4em
 	}
+\fi
+
+
+\if@shellescape
+	\RequirePackage{minted}
+
+	\setminted{
+		linenos,
+		breaklines,
+		mathescape,
+		autogobble
+		% xleftmargin=2em,
+	}
+	\setmintedinline{}
+
+	\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
 \fi
