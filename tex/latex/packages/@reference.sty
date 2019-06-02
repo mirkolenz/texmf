@@ -4,11 +4,15 @@
 \RequirePackage[
 	backend = biber,
 	style = authoryear,
-	citestyle = authoryear-comp
+	citestyle = authoryear-comp,
+	dashed = false,
+	firstinits = true
 ]{biblatex}
 
 \RequirePackage[noabbrev, capitalize]{cleveref}
 \RequirePackage{acronym}
+
+\DeclareNameAlias{sortname}{last-first}
 
 
 \if@beamer
