@@ -6,14 +6,15 @@
 	style = authoryear,
 	citestyle = authoryear-comp,
 	dashed = false,
-	firstinits = true,
+	giveninits = true,
 	date = year
 ]{biblatex}
 
+\DeclareNameAlias{sortname}{family-given}
+
+
 \RequirePackage[noabbrev, capitalize]{cleveref}
 \RequirePackage{acronym}
-
-\DeclareNameAlias{sortname}{last-first}
 
 
 \if@beamer
