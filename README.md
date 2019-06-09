@@ -4,7 +4,7 @@ Collection of custom classes and packages.
 
 ## Requirements
 
-- A recent version of TeX Live
+A recent version of TeX Live, preferably the newest one.
 
 ## Installation
 
@@ -12,8 +12,6 @@ Clone the complete repository to your local texmf home directory.
 You can get the path by executing `kpsewhich -var-value=TEXMFHOME`.
 
 ## Usage
-
-The documents have to be typeset using LuaLaTeX as it relies heavily on modern features.
 
 Exemplary TeX document:
 
@@ -36,4 +34,4 @@ Exemplary TeX document:
 \end{document}
 ```
 
-The documents can be compiled using pdfLaTeX, LuaLaTeX and XeLaTeX.
+The documents can be compiled using either pdfLaTeX, XeLaTeX or LuaLaTeX (recommended).
