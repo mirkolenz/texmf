@@ -53,7 +53,17 @@
 \DeclareMathOperator{\rank}{rank}
 
 % https://tex.stackexchange.com/questions/30619/what-is-the-best-symbol-for-vector-matrix-transpose
-\DeclareMathOperator{\transpose}{\mathsf{T}}
+\newcommand*{\transpose}{{\mkern-1.5mu\mathsf{T}}}
+% \makeatletter
+% \newcommand*{\transpose}{%
+% 	{\mathpalette\@transpose{}}%
+% }
+% \newcommand*{\@transpose}[2]{%
+% 	% #1: math style
+% 	% #2: unused
+% 	\raisebox{\depth}{$\m@th#1\intercal$}%
+% }
+% \makeatother
 
 
 \DeclareOption{theorems}{
