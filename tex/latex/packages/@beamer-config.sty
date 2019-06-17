@@ -109,10 +109,11 @@
 % Available modes: https://tex.stackexchange.com/questions/263440/what-are-the-available-modes-in-beamer
 \mode<handout>{
 	\PassOptionsToPackage{final}{pdfcomment}
+	\setbeameroption{hide notes}
 }
 \mode<beamer>{
-	% \RequirePackage{pgfpages}
-	% \setbeameroption{show notes on second screen}
+	\RequirePackage{pgfpages}
+	\setbeameroption{show notes on second screen}
 }
 
 \setbeamertemplate{note page}{\insertnote}
