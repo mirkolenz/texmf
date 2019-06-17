@@ -14,7 +14,12 @@
 \DeclareNameAlias{sortname}{family-given}
 
 
-\RequirePackage[noabbrev, capitalize]{cleveref}
+\if@beamer
+\else
+	\PassOptionsToPackage{noabbrev, capitalize}{cleveref}
+\fi
+
+\RequirePackage{cleveref}
 \RequirePackage{acronym}
 
 
