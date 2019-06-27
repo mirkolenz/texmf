@@ -5,6 +5,7 @@
 % \newif\if@metropolis\@metropolisfalse
 \newif\if@focus\@focusfalse
 \newif\if@dark\@darkfalse
+\newif\if@notes\@notesfalse
 
 % DEFAULT COLOR: Defined on page 44
 % WHITE
@@ -31,6 +32,7 @@
 }
 \DeclareOption{metropolis}{\@metropolistrue}
 \DeclareOption{focus}{\@focustrue}
+\DeclareOption{notes}{\@notestrue}
 \ProcessOptions\relax
 
 
@@ -107,16 +109,17 @@
 
 
 % Available modes: https://tex.stackexchange.com/questions/263440/what-are-the-available-modes-in-beamer
-\mode<handout>{
-	\PassOptionsToPackage{final}{pdfcomment}
-	\setbeameroption{hide notes}
-}
-\mode<beamer>{
+\if@notes
 	\RequirePackage{pgfpages}
 	\setbeameroption{show notes on second screen}
-}
+\else
+	\PassOptionsToPackage{final}{pdfcomment}
+	\setbeameroption{hide notes}
+\fi
 
 \setbeamertemplate{note page}{\insertnote}
+
+
 
 \RequirePackage{pdfcomment}
 
