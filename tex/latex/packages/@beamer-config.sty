@@ -5,8 +5,9 @@
 % \newif\if@metropolis\@metropolisfalse
 \newif\if@focus\@focusfalse
 \newif\if@dark\@darkfalse
-\newif\if@presentnotes\@presentnotesfalse
-\newif\if@printnotes\@printnotesfalse
+\newif\if@commentnotes\@commentnotesfalse
+\newif\if@sidenotes\@sidenotesfalse
+\newif\if@pagenotes\@pagenotesfalse
 \newif\if@onlynotes\@onlynotesfalse
 
 % DEFAULT COLOR: Defined on page 44
@@ -34,8 +35,9 @@
 }
 \DeclareOption{metropolis}{\@metropolistrue}
 \DeclareOption{focus}{\@focustrue}
-\DeclareOption{presentnotes}{\@presentnotestrue}
-\DeclareOption{printnotes}{\@printnotestrue}
+\DeclareOption{commentnotes}{\@commentnotestrue}
+\DeclareOption{sidenotes}{\@sidenotestrue}
+\DeclareOption{pagenotes}{\@pagenotestrue}
 \DeclareOption{onlynotes}{\@onlynotestrue}
 \ProcessOptions\relax
 
@@ -117,29 +119,37 @@
 \newcommand{\tab}{}
 \newcommand{\pdfnote}[1]{}
 
-
-\if@printnotes
-	\if@onlynotes
-		\setbeameroption{show only notes}
-	\else
-		\RequirePackage{pgfpages}
-		\setbeameroption{show notes on second screen}
-		\setbeamertemplate{note page}{\insertnote}
-	\fi
-
+\newcommand{\beamernotesconfig}[1]{
 	\renewcommand{\n}{\newline}
 	\renewcommand{\tab}{}
 
 	\renewcommand{\pdfnote}[1]{\note{#1}}
+}
 
-	\setbeamercolor{note page}{bg=white, fg=black}
-	\setbeamercolor{note title}{parent=note page}
-	\setbeamercolor{note date}{parent=note page}
-\else
-	\setbeameroption{hide notes}
+\setbeamercolor{note page}{bg=white, fg=black}
+\setbeamercolor{note title}{parent=note page}
+\setbeamercolor{note date}{parent=note page}
+\setbeameroption{hide notes}
+
+\if@sidenotes
+	\beamernotesconfig{#1}
+
+	\RequirePackage{pgfpages}
+	\setbeameroption{show notes on second screen}
+	\setbeamertemplate{note page}{\insertnote}
 \fi
 
-\if@presentnotes
+\if@onlynotes
+	\beamernotesconfig{#1}
+	\setbeameroption{show only notes}
+\fi
+
+\if@pagenotes
+	\beamernotesconfig{#1}
+	\setbeameroption{show notes}
+\fi
+
+\if@commentnotes
 	\RequirePackage{pdfcomment}
 	\renewcommand{\n}{\textLF}
 	\renewcommand{\tab}{\textHT}
@@ -149,8 +159,7 @@
 			\pdfcomment[icon=note]{#1}
 		\end{textblock*}
 	}
-\else
-	\PassOptionsToPackage{final}{pdfcomment}
+% \else \PassOptionsToPackage{final}{pdfcomment}
 \fi
 
 
