@@ -5,7 +5,9 @@
 % \newif\if@metropolis\@metropolisfalse
 \newif\if@focus\@focusfalse
 \newif\if@dark\@darkfalse
-\newif\if@notes\@notesfalse
+\newif\if@presentnotes\@presentnotesfalse
+\newif\if@printnotes\@printnotesfalse
+\newif\if@onlynotes\@onlynotesfalse
 
 % DEFAULT COLOR: Defined on page 44
 % WHITE
@@ -32,7 +34,9 @@
 }
 \DeclareOption{metropolis}{\@metropolistrue}
 \DeclareOption{focus}{\@focustrue}
-\DeclareOption{notes}{\@notestrue}
+\DeclareOption{presentnotes}{\@presentnotestrue}
+\DeclareOption{printnotes}{\@printnotestrue}
+\DeclareOption{onlynotes}{\@onlynotestrue}
 \ProcessOptions\relax
 
 
@@ -109,30 +113,46 @@
 
 
 % Available modes: https://tex.stackexchange.com/questions/263440/what-are-the-available-modes-in-beamer
-\if@notes
-	% \RequirePackage{pgfpages}
-	% \setbeameroption{show notes on second screen}
+\newcommand{\n}{}
+\newcommand{\tab}{}
+\newcommand{\pdfnote}[1]{}
+
+
+\if@printnotes
+	\if@onlynotes
+		\setbeameroption{show only notes}
+	\else
+		\RequirePackage{pgfpages}
+		\setbeameroption{show notes on second screen}
+		\setbeamertemplate{note page}{\insertnote}
+	\fi
+
+	\renewcommand{\n}{\newline}
+	\renewcommand{\tab}{}
+
+	\renewcommand{\pdfnote}[1]{\note{#1}}
+
+	\setbeamercolor{note page}{bg=white, fg=black}
+	\setbeamercolor{note title}{parent=note page}
+	\setbeamercolor{note date}{parent=note page}
 \else
-	\PassOptionsToPackage{final}{pdfcomment}
 	\setbeameroption{hide notes}
 \fi
 
-\setbeamertemplate{note page}{\insertnote}
-\setbeamercolor{note page}{bg=white, fg=black}
-\setbeamercolor{note title}{parent=note page}
-\setbeamercolor{note date}{parent=note page}
+\if@presentnotes
+	\RequirePackage{pdfcomment}
+	\renewcommand{\n}{\textLF}
+	\renewcommand{\tab}{\textHT}
 
+	\renewcommand{\pdfnote}[1]{
+		\begin{textblock*}{1mm}(\paperwidth-1cm,1cm)
+			\pdfcomment[icon=note]{#1}
+		\end{textblock*}
+	}
+\else
+	\PassOptionsToPackage{final}{pdfcomment}
+\fi
 
-
-\RequirePackage{pdfcomment}
-
-\newcommand{\pdfnote}[1]{
-	\begin{textblock*}{1mm}(\paperwidth-1cm,1cm)
-		\pdfcomment[icon=note]{#1}
-	\end{textblock*}
-}
-\newcommand{\n}{\textLF}
-\newcommand{\tab}{\textHT}
 
 \newcommand{\pdfmovie}[4]{\href{run:#1}{\framebox{\parbox[c][#3][c]{#2}{\center #4}}}}
 % Example: \pdfmovie{720p25_pedestrian.mov}{6cm}{4cm}{H.264 avi}
