@@ -110,8 +110,8 @@
 
 % Available modes: https://tex.stackexchange.com/questions/263440/what-are-the-available-modes-in-beamer
 \if@notes
-	\RequirePackage{pgfpages}
-	\setbeameroption{show notes on second screen}
+	% \RequirePackage{pgfpages}
+	% \setbeameroption{show notes on second screen}
 \else
 	\PassOptionsToPackage{final}{pdfcomment}
 	\setbeameroption{hide notes}
@@ -127,7 +127,7 @@
 \RequirePackage{pdfcomment}
 
 \newcommand{\pdfnote}[1]{
-	\begin{textblock*}{1mm}(0mm,0mm)
+	\begin{textblock*}{1mm}(\paperwidth-1cm,1cm)
 		\pdfcomment[icon=note]{#1}
 	\end{textblock*}
 }
