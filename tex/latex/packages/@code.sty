@@ -16,7 +16,7 @@
 	}
 \else
 	\lstset{
-		basicstyle = \ttfamily,
+		basicstyle = \ttfamily\footnotesize,
 		numbers = left,
 		numberstyle = \ttfamily,
 		breaklines = true,
@@ -29,13 +29,18 @@
 \if@shellescape
 	\RequirePackage{caption}
 	\RequirePackage[newfloat=true]{minted}
+	\usemintedstyle{manni} % bw
 
 	\setminted{
 		linenos,
 		breaklines,
 		mathescape,
 		autogobble,
-		framesep = 0.5em
+		framesep = 0.5em,
+		fontsize = \footnotesize,
+		tabsize = 4,
+		% frame=lines
+		% baselinestretch = 1,
 		% xleftmargin=2em,
 	}
 	\setmintedinline{}
