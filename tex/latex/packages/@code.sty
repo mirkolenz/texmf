@@ -5,6 +5,7 @@
 \RequirePackage{listings}
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
+\algrenewcommand\alglinenumber[1]{\footnotesize #1}
 
 \if@beamer
 	\lstset{
@@ -40,8 +41,8 @@
 		fontsize = \small,
 		tabsize = 4,
 		baselinestretch = 1.0,
-		% frame=lines
-		% xleftmargin=2em,
+		xleftmargin=2em,
+		% frame=lines,
 	}
 	\setmintedinline{}
 
