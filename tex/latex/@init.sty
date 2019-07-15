@@ -140,10 +140,11 @@
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
 }
-\newcommand{\maketitletoc}{
+\newcommand{\makefrontmatter}[1]{
 	\frontmatter
 	\maketitle
 	\tableofcontents
+	#1
 	\cleardoublepage
 	\mainmatter
 }
