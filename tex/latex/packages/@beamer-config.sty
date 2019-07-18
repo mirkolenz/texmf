@@ -48,7 +48,7 @@
 	progressbar=frametitle,
 	% sectionpage=none,
 	subsectionpage=progressbar,
-	titleformat frame=allsmallcaps,
+	% titleformat frame=allsmallcaps,
 	block=fill
 ]{metropolis}
 
@@ -62,6 +62,11 @@
 \setbeamercolor{palette primary}{fg=fgColor,bg=bgColor}
 \setbeamercolor{framesource}{fg=fgColor}
 \setbeamerfont{framesource}{size=\scriptsize}
+
+\setbeamercolor{progress bar}{%
+	fg=fgColor,
+	bg=highlightColor
+}
 % \fi
 
 \if@focus
@@ -180,8 +185,8 @@
 	\fi%
 }
 
-\newcommand{\themedbox}[2][2mm]{%
-	\if@dark
+\newcommand{\themedbox}[2]{%
+	\if@dark%
 		{\setlength{\fboxsep}{#1}\colorbox{fgColor}{#2}}%
 	\else%
 		#2%
