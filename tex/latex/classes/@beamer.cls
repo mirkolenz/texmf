@@ -8,4 +8,4 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
 \ProcessOptions\relax
 
-\LoadClass[14pt,aspectratio=169]{\baseclass}
+\LoadClass{\baseclass}
