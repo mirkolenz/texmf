@@ -180,9 +180,9 @@
 	\fi%
 }
 
-\newcommand{\themedbox}[1]{%
+\newcommand{\themedbox}[2][2mm]{%
 	\if@dark
-		{\setlength{\fboxsep}{2.5mm}\colorbox{fgColor}{#1}}%
+		{\setlength{\fboxsep}{#1}\colorbox{fgColor}{#2}}%
 	\else%
 		#1%
 	\fi%
