@@ -182,7 +182,7 @@
 
 \newcommand{\themedbox}[1]{%
 	\if@dark
-		\colorbox{fgColor}{#1}%
+		{\setlength{\fboxsep}{2.5mm}\colorbox{fgColor}{#1}}%
 	\else%
 		#1%
 	\fi%
