@@ -98,9 +98,9 @@
 \newcommand{\footsourceX}{8cm}
 \newcommand{\footsourceY}{8cm}
 
-\newcommand{\footsource}[1]{\begin{textblock*}{\footsourceW}(\footsourceX,\footsourceY)
+\newcommand{\footsource}[2][Source:]{\begin{textblock*}{\footsourceW}(\footsourceX,\footsourceY)
 	\begin{beamercolorbox}[ht=0.5cm,left]{framesource}
-		\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \textbf{Source:} {#1}
+		\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \textbf{#1} {#2}
 	\end{beamercolorbox}
 \end{textblock*}}
 
