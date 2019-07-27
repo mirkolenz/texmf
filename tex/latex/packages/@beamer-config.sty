@@ -94,23 +94,44 @@
 
 \RequirePackage[absolute,overlay]{textpos}
 
+
+
+
+
 \newcommand{\footsourceW}{8cm}
 \newcommand{\footsourceX}{8cm}
 \newcommand{\footsourceY}{8cm}
+
 
 \newcommand{\footsource}[2][Source:]{\begin{textblock*}{\footsourceW}(\footsourceX,\footsourceY)
 	\begin{beamercolorbox}[ht=0.5cm,left]{framesource}
 		\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \textbf{#1} {#2}
 	\end{beamercolorbox}
 \end{textblock*}}
+\newcommand{\fcite}[1]{\footsource{\textcite{#1}}}
 
-\newcommand{\source}[1]{
-	\\[-.3em]
-	{
-		\footnotesize
-		\textcolor{highlightColor}{#1}
-	}
+
+\newcommand{\displaysource}[1]{%
+	{%
+		\setlength\parindent{0em}%
+		\setlength{\parskip}{0em}%
+		\par\ignorespaces% \par\noindent\ignorespaces
+		\vspace{-.2em}%
+		\footnotesize\textsource{#1}%
+		\ignorespacesafterend%
+	}%
 }
+\newcommand{\dcite}[1]{\displaysource{\parencite{#1}}}
+
+
+\newcommand{\textsource}[1]{%
+	\textcolor{highlightColor}{#1}%
+}
+\newcommand{\tcite}[1]{\textsource{\parencite{#1}}}
+
+
+
+
 
 \newcommand{\icon}[1]{%
 	\begin{center}
