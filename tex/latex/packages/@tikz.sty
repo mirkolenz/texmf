@@ -10,3 +10,21 @@
 \pgfplotsset{compat=1.15}
 
 \usetikzlibrary{shapes, arrows.meta, positioning}
+
+
+\newif\if@tikzexternal\@tikzexternalfalse
+
+\DeclareOption{external}{\@tikzexternaltrue}
+\ProcessOptions\relax
+
+\if@tikzexternal
+      \usepgfplotslibrary{external} % creates a tight self-contained pdf figure for each tikzpicture
+      \tikzexternalize % comment out to debug if latex errors: generates the external pdf
+      \tikzset{external/force remake} % otherwise will use external pdf if it exists
+      \tikzset{png export/.style={
+            external/system call={
+                  pdflatex \tikzexternalcheckshellescape
+                        -halt-on-error -interaction=batchmode -jobname "\image" "\texsource";
+                  convert -units pixelsperinch -density 300 "\image.pdf" "\image.png";
+      }}}
+\fi
