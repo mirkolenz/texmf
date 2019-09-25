@@ -1,16 +1,26 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{@reference}
 
+
+\newcommand{\bibparams}{}
+
+\DeclareOption{authoryear}{\renewcommand{\bibparams}{style = authoryear, dashed = false, uniquelist = false}}
+\DeclareOption{numeric}{\renewcommand{\bibparams}{style = numeric}}
+\ProcessOptions\relax
+
+
 \RequirePackage[
 	backend = biber,
-	style = authoryear,
-	citestyle = authoryear-comp,
-	dashed = false,
+	\bibparams,
+	% citestyle = authoryear-comp,
+	maxnames = 2,
+	% minnames = 1,
 	giveninits = true,
 	uniquename = init,
 	date = year,
 	url = false,
-	isbn = false
+	isbn = false,
+	sortcites = true,
 ]{biblatex}
 
 \DeclareNameAlias{sortname}{family-given}
