@@ -54,12 +54,6 @@
 \PassOptionsToPackage{\languageselection}{cleveref}
 
 
-\PassOptionsToPackage{unicode}{hyperref}
-\if@beamer
-\else
-	\PassOptionsToPackage{pdfusetitle}{hyperref}
-\fi
-
 
 \RequirePackage{babel}
 
@@ -96,7 +90,22 @@
 \fi
 
 \RequirePackage{setspace}
+
+
+
+
+\PassOptionsToPackage{unicode}{hyperref}
+\if@beamer
+\else
+	\PassOptionsToPackage{pdfusetitle}{hyperref}
+\fi
+
 \RequirePackage{hyperref}
+
+\hypersetup{unicode}
+
+
+
 
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
