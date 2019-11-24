@@ -1,5 +1,6 @@
 private/
 local/
+docs/
 
 # General
 .DS_Store
