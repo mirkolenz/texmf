@@ -8,6 +8,11 @@
 \RequirePackage{longtable}
 \RequirePackage{float}
 \RequirePackage{caption}
+\RequirePackage{makecell}
 
-\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+% \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\renewcommand{\theadalign}{bc}
+\renewcommand{\theadfont}{\bfseries}
+% \renewcommand{\cellalign}{l}
