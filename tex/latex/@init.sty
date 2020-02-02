@@ -132,8 +132,16 @@
 }
 
 
-
 \PassOptionsToPackage{labelfont=bf,sf}{caption}
+
+
+\if@beamer
+\else
+	\PassOptionsToPackage{noabbrev, capitalize}{cleveref}
+\fi
+\RequirePackage{cleveref}
+
+
 
 
 \setstretch{1.2}
