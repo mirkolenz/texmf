@@ -75,7 +75,7 @@
 
 \ifluatexorxetex
 	\RequirePackage[no-math]{fontspec}
-	\RequirePackage[math-style=ISO]{unicode-math}
+	\RequirePackage[math-style=ISO, mathbf=sym]{unicode-math} % mathbf=sym
 	\defaultfontfeatures{
 		Ligatures = Common,
 		Numbers = Lining
@@ -140,6 +140,34 @@
 	\PassOptionsToPackage{noabbrev, capitalize}{cleveref}
 \fi
 \RequirePackage{cleveref}
+
+
+
+% % CVPR style package
+% \RequirePackage{xspace}
+% % Add a period to the end of an abbreviation unless there's one already, then \xspace.
+% \makeatletter
+% \DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+% \newcommand{\@onedot}{\ifx\@let@token.\else.\null\fi\xspace}
+
+% \newcommand{\eg}{\emph{e.g}\onedot}
+% \newcommand{\Eg}{\emph{E.g}\onedot}
+
+% \newcommand{\zb}{\emph{z.\ B.}\onedot}
+
+% \newcommand{\ie}{\emph{i.e}\onedot}
+% \newcommand{\Ie}{\emph{I.e}\onedot}
+
+% \newcommand{\cf}{\emph{c.f}\onedot}
+% \newcommand{\Cf}{\emph{C.f}\onedot}
+
+% \newcommand{\etc}{\emph{etc}\onedot}
+% \newcommand{\vs}{\emph{vs}\onedot}
+
+% \newcommand{\wrt}{w.r.t\onedot}
+% \newcommand{\dof}{d.o.f\onedot}
+% \newcommand{\etal}{\emph{et al}\onedot}
+% \makeatother
 
 
 
