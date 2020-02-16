@@ -186,13 +186,11 @@
 \newcommand{\email}[1]{\texttt{\href{mailto:#1}{#1}}}
 
 \newcommand{\maketoc}{
-	{
-		\pagenumbering{roman}
-		\pagestyle{empty}
-		\addtocontents{toc}{\protect\thispagestyle{empty}}
-		\tableofcontents
-		\cleardoublepage
-	}
+	\pagenumbering{roman}
+	% \thispagestyle{empty}
+	% \addtocontents{toc}{\protect\thispagestyle{empty}}
+	\tableofcontents
+	\cleardoublepage
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
 }
