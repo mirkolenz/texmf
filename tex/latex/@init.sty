@@ -5,13 +5,13 @@
 \RequirePackage{ifxetex,ifluatex}
 \newif\ifluatexorxetex
 \ifxetex
-  \luatexorxetextrue
+	\luatexorxetextrue
 \else
-  \ifluatex
-    \luatexorxetextrue
-  \else
-    \luatexorxetexfalse
-  \fi
+	\ifluatex
+		\luatexorxetextrue
+	\else
+		\luatexorxetexfalse
+	\fi
 \fi
 
 
@@ -61,25 +61,19 @@
 \RequirePackage{amsthm}
 \RequirePackage{amstext}
 \RequirePackage{amssymb}
-% \RequirePackage{commath}
 \RequirePackage{mathtools}
 \RequirePackage{siunitx}
 \RequirePackage{fmtcount} % equivalent to \usepackage[super]{nth}
-
 \sisetup{per-mode=fraction}
 
-\ifluatex
-	\RequirePackage{luatexbase} % Hack/Work-around for microtype bug
-\fi
-
-\RequirePackage[final, verbose = silent]{microtype}
+\RequirePackage[final, verbose=silent]{microtype}
 
 \ifluatexorxetex
 	\RequirePackage[no-math]{fontspec}
-	\RequirePackage[math-style=ISO, mathbf=sym]{unicode-math} % mathbf=sym
+	\RequirePackage[math-style=ISO, mathbf=sym]{unicode-math}
 	\defaultfontfeatures{
 		Ligatures = Common,
-		Numbers = Lining
+		% Numbers = Lining
 	}
 \fi
 
@@ -178,10 +172,9 @@
 
 
 
-
-\setstretch{1.2}
-\setlength{\parindent}{0em}
-\setlength{\parskip}{.5em}
+% \setstretch{1.2}
+% \setlength{\parindent}{0em}
+% \setlength{\parskip}{.5em}
 
 \newcommand{\email}[1]{\texttt{\href{mailto:#1}{#1}}}
 
