@@ -2,14 +2,14 @@
 \ProvidesPackage{@font-utopia}
 
 \ifluatexorxetex
-	\setmainfont{Erewhon}
-	\setmathfont{Erewhon Math}
-	\setsansfont[Scale=MatchLowercase]{Cabin}
+	\setmainfont[Numbers = {Lining, Proportional}]{Erewhon}
+	\setsansfont[Numbers = {Lining, Proportional}, Scale=MatchLowercase]{Cabin}
 	\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+	\setmathfont{Erewhon Math}
 	% \setmathfont[range = \setminus]{Asana Math}
 \else
-	\RequirePackage{erewhon}
-	\RequirePackage{cabin}
+	\RequirePackage[lining, proportional]{erewhon}
+	\RequirePackage[lining, proportional]{cabin}
 	\RequirePackage{inconsolata}
 	\RequirePackage{erwhon-math}
 \fi

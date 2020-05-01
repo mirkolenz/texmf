@@ -2,8 +2,8 @@
 \ProvidesPackage{@font-minion}
 
 \ifluatexorxetex
-	\setmainfont{Source Serif Pro}
-	\setsansfont{Source Sans Pro}
+	\setmainfont[Numbers = {Lining, Proportional}]{Source Serif Pro}
+	\setsansfont[Numbers = {Lining, Proportional}]{Source Sans Pro}
 	\setmonofont{Source Code Pro}
 
 	\setmathfont{LatinModern-Math.otf}
@@ -12,8 +12,8 @@
 	\setmathfont[range=\mathbfup/{Latin,latin}]{Source Serif Pro Bold}
 	\setmathfont[range=\mathbfit/{Latin,latin}]{Source Serif Pro Bold Italic}
 \else
-	\RequirePackage{sourceserifpro}
-	\RequirePackage{sourcesanspro}
+	\RequirePackage[lining, proportional]{sourceserifpro}
+	\RequirePackage[lining, proportional]{sourcesanspro}
 	\RequirePackage{sourcecodepro}
 	% \RequirePackage{mathpazo}
 \fi

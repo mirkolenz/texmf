@@ -2,12 +2,13 @@
 \ProvidesPackage{@font-helvetica}
 
 \ifluatexorxetex
-	\setmainfont{TeX Gyre Heros}
-	\setsansfont{TeX Gyre Heros}
-	\setmonofont{TeX Gyre Heros}
+	\setmainfont[Numbers = {Lining, Proportional}]{TeX Gyre Heros}
+	\setsansfont[Numbers = {Lining, Proportional}]{TeX Gyre Heros}
+	\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
 	\setmathfont{Asana Math}
 \else
-	\RequirePackage{tgheros}
+	\RequirePackage[lining, proportional]{tgheros}
+	\RequirePackage{inconsolata}
 \fi
 
 \if@koma

@@ -2,9 +2,10 @@
 \ProvidesPackage{@font-palatino}
 
 \ifluatexorxetex
-	\setmainfont{TeX Gyre Pagella}
+	\setmainfont[Numbers = {Lining, Proportional}]{TeX Gyre Pagella}
 
 	\setsansfont[
+		Numbers = {Lining, Proportional},
 		BoldFont = * SemiBold,
 		BoldItalicFont = * SemiBold Italic
 	]{Fira Sans}
@@ -14,8 +15,8 @@
 	\setmathfont{TeX Gyre Pagella Math}
 	\setmathfont[range = \setminus]{Asana Math}
 \else
-	\RequirePackage{tgpagella}
-	\RequirePackage[lining,semibold]{FiraSans}
+	\RequirePackage[lining, proportional]{tgpagella}
+	\RequirePackage[lining, proportional, semibold]{FiraSans}
 	\RequirePackage{FiraMono}
 	\RequirePackage{mathpazo}
 \fi

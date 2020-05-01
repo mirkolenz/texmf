@@ -2,13 +2,13 @@
 \ProvidesPackage{@font-palatino}
 
 \ifluatexorxetex
-	\setmainfont{EB Garamond}
-	\setsansfont[Scale = MatchLowercase]{TeX Gyre Heros}
+	\setmainfont[Numbers = {Lining, Proportional}]{EB Garamond}
+	\setsansfont[Numbers = {Lining, Proportional}, Scale = MatchLowercase]{TeX Gyre Heros}
 	\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
 	\setmathfont{Garamond-Math.otf}
 \else
-	\RequirePackage{ebgaramond}
-	\RequirePackage[scale=0.8]{tgheros}
+	\RequirePackage[lining, proportional]{ebgaramond}
+	\RequirePackage[lining, proportional, scale=0.8]{tgheros}
 	\RequirePackage{inconsolata}
 	% \RequirePackage[cmintegrals,cmbraces]{newtxmath}
 	\RequirePackage{ebgaramond-maths}
