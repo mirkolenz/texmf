@@ -3,13 +3,11 @@
 
 \ifluatexorxetex
 	\setmainfont[
-		Numbers = {Lining, Proportional},
 		BoldFont = * SemiBold,
 		BoldItalicFont = * SemiBold Italic,
 	]{Fira Sans}
 
 	\setsansfont[
-		Numbers = {Lining, Proportional},
 		BoldFont = * SemiBold,
 		BoldItalicFont = * SemiBold Italic
 	]{Fira Sans}
@@ -23,7 +21,7 @@
 		\setmathfont[range = \setminus]{Asana Math}
 	\fi
 \else
-	\RequirePackage[sfdefault, lining, proportional, semibold]{FiraSans}
+	\RequirePackage[sfdefault, oldstyle, proportional, semibold]{FiraSans}
 	\RequirePackage{FiraMono}
 	\RequirePackage{newtxsf}
 \fi
