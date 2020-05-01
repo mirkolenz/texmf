@@ -3,12 +3,12 @@
 
 \ifluatexorxetex
 	\setmainfont[Numbers = {Lining, Proportional}]{EB Garamond}
-	\setsansfont[Numbers = {Lining, Proportional}, Scale = MatchLowercase]{TeX Gyre Heros}
-	\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+	\setsansfont[Numbers = {Lining, Proportional}, Scale = MatchUppercase]{TeX Gyre Heros}
+	\setmonofont[Scale=MatchUppercase]{Inconsolatazi4}
 	\setmathfont{Garamond-Math.otf}
 \else
 	\RequirePackage[lining, proportional]{ebgaramond}
-	\RequirePackage[lining, proportional, scale=0.8]{tgheros}
+	\RequirePackage[scale=0.9]{tgheros}
 	\RequirePackage{inconsolata}
 	% \RequirePackage[cmintegrals,cmbraces]{newtxmath}
 	\RequirePackage{ebgaramond-maths}

@@ -6,16 +6,17 @@
 
 	\setsansfont[
 		Numbers = {Lining, Proportional},
+		Scale = MatchUppercase,
 		BoldFont = * SemiBold,
 		BoldItalicFont = * SemiBold Italic
 	]{Fira Sans}
 
-	\setmonofont[Scale = .85]{Fira Mono}
+	\setmonofont[Scale = MatchUppercase]{Fira Mono}
 
 	\setmathfont{TeX Gyre Pagella Math}
 	\setmathfont[range = \setminus]{Asana Math}
 \else
-	\RequirePackage[lining, proportional]{tgpagella}
+	\RequirePackage{tgpagella}
 	\RequirePackage[lining, proportional, semibold]{FiraSans}
 	\RequirePackage{FiraMono}
 	\RequirePackage{mathpazo}
