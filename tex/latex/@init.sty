@@ -67,14 +67,17 @@
 \sisetup{per-mode=fraction}
 
 \RequirePackage[final, verbose=silent]{microtype}
+\newcommand{\numberstyle}{}
 
 \ifluatexorxetex
 	\RequirePackage[no-math]{fontspec}
 	\RequirePackage[math-style=ISO, mathbf=sym]{unicode-math}
 	\defaultfontfeatures{
 		Ligatures = Common,
-		% Numbers = Lining
+		Numbers = {OldStyle, Proportional} % Lining, Monospaced
 	}
+
+	\renewcommand{\numberstyle}[1]{\addfontfeatures{Numbers={#1}}}
 \fi
 
 \if@overleaf
