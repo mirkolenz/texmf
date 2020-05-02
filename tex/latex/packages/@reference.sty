@@ -6,6 +6,7 @@
 
 \DeclareOption{authoryear}{\renewcommand{\bibparams}{style = authoryear, dashed = false, uniquelist = false}}
 \DeclareOption{numeric}{\renewcommand{\bibparams}{style = numeric}}
+\DeclareOption{hideacronyms}{\PassOptionsToPackage{nolist}{acronym}}
 \ProcessOptions\relax
 
 
@@ -30,32 +31,32 @@
 
 
 \if@beamer
-	\renewcommand*{\bibfont}{\footnotesize}
-	% \setbeamertemplate{bibliography item}[text]
+\renewcommand*{\bibfont}{\footnotesize}
+% \setbeamertemplate{bibliography item}[text]
 
-	\setbeamertemplate{bibliography item}{
-		\ifboolexpr{
-			test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
-			or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
-			or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}
-		}{\setbeamertemplate{bibliography item}[book]}
-		{\ifentrytype{online}
-			{\setbeamertemplate{bibliography item}[online]}
-			{\setbeamertemplate{bibliography item}[article]}
-		}
-		\usebeamertemplate{bibliography item}
+\setbeamertemplate{bibliography item}{
+	\ifboolexpr{
+		test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+		or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+		or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}
+	}{\setbeamertemplate{bibliography item}[book]}
+	{\ifentrytype{online}
+		{\setbeamertemplate{bibliography item}[online]}
+		{\setbeamertemplate{bibliography item}[article]}
 	}
+	\usebeamertemplate{bibliography item}
+}
 
-	\defbibenvironment{bibliography}{
-		\list{}{
-			\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
-			\setlength{\leftmargin}{\labelwidth}
-			\setlength{\labelsep}{\biblabelsep - 1em}
-			\addtolength{\leftmargin}{\labelsep}
-			\setlength{\itemsep}{\bibitemsep + 1em}
-			\setlength{\parsep}{\bibparsep}
-		}
+\defbibenvironment{bibliography}{
+	\list{}{
+		\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
+		\setlength{\leftmargin}{\labelwidth}
+		\setlength{\labelsep}{\biblabelsep - 1em}
+		\addtolength{\leftmargin}{\labelsep}
+		\setlength{\itemsep}{\bibitemsep + 1em}
+		\setlength{\parsep}{\bibparsep}
 	}
-	{\endlist}
-	{\item}
+}
+{\endlist}
+{\item}
 \fi
