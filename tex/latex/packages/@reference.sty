@@ -27,6 +27,9 @@
 
 
 \RequirePackage{acronym}
+\if@koma
+	\renewcommand{\aclabelfont}[1]{\textsf{#1}}
+\fi
 
 
 \if@beamer
