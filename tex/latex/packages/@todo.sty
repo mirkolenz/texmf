@@ -2,4 +2,14 @@
 \ProvidesPackage{@todo}
 
 \RequirePackage{todonotes}
-\presetkeys{todonotes}{inline}{}
+\presetkeys{todonotes}{%
+    backgroundcolor=SkyBlue,
+    bordercolor=SkyBlue,
+    linecolor=RoyalBlue,
+    textcolor=black,
+    tickmarkheight=1mm,
+    size=footnotesize
+}{}
+
+\DeclareOption{inline}{\presetkeys{todonotes}{inline}{}}
+\ProcessOptions\relax
