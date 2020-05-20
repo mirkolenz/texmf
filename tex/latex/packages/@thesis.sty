@@ -10,15 +10,17 @@
 \Crefname{hyp}{Hypothesis}{Hypotheses}
 
 
-\newenvironment{abstract}
-{
-    \cleardoublepage\thispagestyle{empty}\null\vfill
-    \begin{center}
-        \bfseries\abstractname
-    \end{center}
-}{
-    \vfill\null
-}
+\@ifundefined{abstract}{
+    \newenvironment{abstract}
+    {
+        \cleardoublepage\thispagestyle{empty}\null\vfill
+        \begin{center}
+            \bfseries\abstractname
+        \end{center}
+    }{
+        \vfill\null
+    }
+}{}
 
 \newcommand{\chapterauthor}[1]
 {
