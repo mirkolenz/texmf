@@ -52,6 +52,7 @@
 
 \PassOptionsToPackage{\languageselection}{babel}
 \PassOptionsToPackage{\languageselection}{cleveref}
+\PassOptionsToPackage{labelfont=bf,sf}{caption}
 
 
 
@@ -111,10 +112,8 @@
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg,.gif}
 \graphicspath{{img/}}
 
-\RequirePackage{booktabs}
-\RequirePackage[autostyle = true]{csquotes}
 
-\RequirePackage[sharp]{easylist}
+\RequirePackage[autostyle = true]{csquotes}
 \RequirePackage[useregional, showseconds=false]{datetime2}
 
 
@@ -129,9 +128,6 @@
 		\RequirePackage{ziffer}
 	\fi
 }
-
-
-\PassOptionsToPackage{labelfont=bf,sf}{caption}
 
 
 \if@beamer
