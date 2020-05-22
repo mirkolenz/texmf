@@ -1,6 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{@todo}
 
+\newif\if@inline\@inlinefalse
+
+\DeclareOption{disable}{\PassOptionsToPackage{disable}{todonotes}}
+\DeclareOption{inline}{\@inlinetrue}
+\ProcessOptions\relax
+
 \RequirePackage{todonotes}
 \presetkeys{todonotes}{%
     backgroundcolor=SkyBlue,
@@ -11,5 +17,6 @@
     size=footnotesize
 }{}
 
-\DeclareOption{inline}{\presetkeys{todonotes}{inline}{}}
-\ProcessOptions\relax
+\if@inline
+    \presetkeys{todonotes}{inline}{}
+\fi
