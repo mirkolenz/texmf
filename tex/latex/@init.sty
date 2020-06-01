@@ -120,6 +120,9 @@
 \if@beamer
 \else
 	\RequirePackage[shortlabels]{enumitem} % inline
+
+	\newlist{enumerate*}{enumerate*}{1}
+	\setlist[enumerate*]{label=\textbf{(\alph*)}}
 \fi
 
 \newcommand{\enableziffer}{
