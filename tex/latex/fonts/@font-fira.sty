@@ -12,14 +12,10 @@
 		BoldItalicFont = * SemiBold Italic
 	]{Fira Sans}
 
-	\setmonofont{Fira Mono}
+	\setmonofont[Numbers = {Lining, Proportional}]{Fira Mono}
 
-	\if@overleaf
-		\setmathfont{Asana Math}
-	\else
-		\setmathfont{Fira Math}
-		\setmathfont[range = \setminus]{Asana Math}
-	\fi
+	\setmathfont{Fira Math}
+	\setmathfont[range = \setminus]{Asana Math}
 \else
 	\RequirePackage[sfdefault, oldstyle, proportional, semibold]{FiraSans}
 	\RequirePackage{FiraMono}
