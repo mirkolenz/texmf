@@ -6,7 +6,6 @@
 
 \DeclareOption{authoryear}{\renewcommand{\bibparams}{style = authoryear, dashed = false, uniquelist = false}}
 \DeclareOption{numeric}{\renewcommand{\bibparams}{style = numeric}}
-\DeclareOption{hideacronyms}{\PassOptionsToPackage{nolist}{acronym}}
 \ProcessOptions\relax
 
 
@@ -33,10 +32,7 @@
 \DeclareNameAlias{sortname}{family-given}
 
 
-\RequirePackage{acronym}
-\if@koma
-	\renewcommand*{\aclabelfont}[1]{\textbf{\textsf{\acsfont{#1}}}}
-\fi
+\RequirePackage{acro}
 
 
 \if@beamer
