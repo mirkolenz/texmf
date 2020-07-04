@@ -4,26 +4,26 @@
 
 \newcommand{\bibparams}{}
 
-\DeclareOption{authoryear}{\renewcommand{\bibparams}{style = authoryear, dashed = false, uniquelist = false}}
-\DeclareOption{numeric}{\renewcommand{\bibparams}{style = numeric}}
+\DeclareOption{authoryear}{\renewcommand{\bibparams}{style=authoryear, dashed=false, uniquelist=false}}
+\DeclareOption{numeric}{\renewcommand{\bibparams}{style=numeric}}
 \ProcessOptions\relax
 
 
 \RequirePackage[
-	backend = biber,
+	backend=biber,
 	\bibparams,
-	maxbibnames = 99, % show all authors in bibliography
-	maxcitenames = 2, % show 2 authors in citations
-	terseinits = true, % see below
-	giveninits = true, % show only initials
-	uniquename = init, % sort using initials
-	date = year, % show only the year
-	url = false, % hide url
-	isbn = false, % hide isbn
-	sortcites = true, % sort citations if multiple are given
+	maxbibnames=99, % show all authors in bibliography
+	maxcitenames=2, % show 2 authors in citations
+	terseinits=true, % see below
+	giveninits=true, % show only initials
+	uniquename=init, % sort using initials
+	date=year, % show only the year
+	url=false, % hide url
+	isbn=false, % hide isbn
+	sortcites=true, % sort citations if multiple are given
 ]{biblatex}
 
-% terseinits = true means the following three commands
+% terseinits=true means the following three commands
 % \renewrobustcmd*{\bibinitperiod}{} % remove period after initial
 % \renewrobustcmd*{\bibinitdelim}{} % remove space between initials
 % \renewrobustcmd*{\bibinithyphendelim}{} % remove hyphen between initials
