@@ -127,13 +127,6 @@
 	\setlist[enumerate*]{label=(\roman*)}
 \fi
 
-\newcommand{\enableziffer}{
-	\if@de
-		% isonums
-		\RequirePackage{ziffer}
-	\fi
-}
-
 
 \if@beamer
 \else
@@ -141,6 +134,17 @@
 \fi
 \RequirePackage{cleveref}
 
+
+\newcommand{\init}{
+	% \if@koma
+	% 	\recalctypearea
+	% \fi
+
+	\if@de
+		% isonums
+		\usepackage{ziffer}
+	\fi
+}
 
 
 % % CVPR style package
