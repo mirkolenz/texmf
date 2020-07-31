@@ -30,19 +30,23 @@
 
 % Show only one of the following: DOI, ePrint, URL
 \DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{ % DOI is available
-      \step[fieldsource=doi,final]
-      \step[fieldset=eprint,null]
-      \step[fieldset=url,null]
-      \step[fieldset=urldate,null]
-    }
-    \map{ % EPrint is available
-      \step[fieldsource=eprint,final]
-      \step[fieldset=url,null]
-      \step[fieldset=urldate,null]
-    }
-  }
+	\maps[datatype=bibtex]{
+		\map{ % If DOI is available, hide eprint and url.
+			\step[fieldsource=doi,final]
+			\step[fieldset=eprint,null]
+			\step[fieldset=url,null]
+			\step[fieldset=urldate,null]
+		}
+		\map{ % If eprint is available, hide url
+			\step[fieldsource=eprint,final]
+			\step[fieldset=url,null]
+			\step[fieldset=urldate,null]
+		}
+		\map{ % If proceedings title is available, hide conference name
+			\step[fieldsource=booktitle,final]
+			\step[fieldset=eventtitle,null]
+		}
+	}
 }
 
 \renewcommand*{\revsdnamepunct}{} % remove comma between last and first name
