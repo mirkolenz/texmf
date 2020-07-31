@@ -15,10 +15,9 @@
 	maxbibnames=99, % show all authors in bibliography
 	maxcitenames=2, % show 2 authors in citations
 	terseinits=true, % see below
-	giveninits=true, % show only initials
-	uniquename=init, % sort using initials
+	% giveninits=true, % show only initials
+	% uniquename=init, % sort using initials
 	date=year, % show only the year
-	url=false, % hide url
 	isbn=false, % hide isbn
 	sortcites=true, % sort citations if multiple are given
 ]{biblatex}
@@ -27,6 +26,24 @@
 % \renewrobustcmd*{\bibinitperiod}{} % remove period after initial
 % \renewrobustcmd*{\bibinitdelim}{} % remove space between initials
 % \renewrobustcmd*{\bibinithyphendelim}{} % remove hyphen between initials
+
+
+% Show only one of the following: DOI, ePrint, URL
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{ % DOI is available
+      \step[fieldsource=doi,final]
+      \step[fieldset=eprint,null]
+      \step[fieldset=url,null]
+      \step[fieldset=urldate,null]
+    }
+    \map{ % EPrint is available
+      \step[fieldsource=eprint,final]
+      \step[fieldset=url,null]
+      \step[fieldset=urldate,null]
+    }
+  }
+}
 
 \renewcommand*{\revsdnamepunct}{} % remove comma between last and first name
 \DeclareNameAlias{sortname}{family-given}
