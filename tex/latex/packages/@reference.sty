@@ -46,6 +46,13 @@
 			\step[fieldsource=booktitle,final]
 			\step[fieldset=eventtitle,null]
 		}
+		\map{ % Hide editor if an author exists
+			\step[fieldsource=author, final]
+			\step[fieldset=editor, null]
+		}
+		\map{ % Hide all series editors
+			\step[fieldset=editorb, null]
+		}
 	}
 }
 
