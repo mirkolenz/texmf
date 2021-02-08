@@ -1,8 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{@letter}
+\ProvidesClass{_letter}
 
 \newcommand{\baseclass}{scrlttr2}
-\PassOptionsToPackage{koma}{@init}
+\PassOptionsToPackage{koma}{_init}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
 \ProcessOptions\relax
