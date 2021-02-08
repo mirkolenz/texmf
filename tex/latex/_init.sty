@@ -62,7 +62,6 @@
 \RequirePackage{amsthm}
 \RequirePackage{amstext}
 \RequirePackage{amssymb}
-\RequirePackage{mathtools}
 \RequirePackage{siunitx}
 \RequirePackage{fmtcount} % equivalent to \usepackage[super]{nth}
 \sisetup{per-mode=fraction}
@@ -73,7 +72,7 @@
 
 \ifluatexorxetex
 	\RequirePackage[quiet, no-math]{fontspec}
-	\RequirePackage[math-style=ISO, mathbf=sym]{unicode-math}
+	\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}, math-style=ISO, mathbf=sym]{unicode-math}
 	\defaultfontfeatures{
 		Ligatures=Common,
 		Numbers={Lining, Monospaced}
@@ -85,8 +84,15 @@
 \fi
 
 
+\RequirePackage{mathtools} % load after unicode-math
+
+
 \RequirePackage{fontawesome5}
 \RequirePackage{xurl}
+
+% https://tex.stackexchange.com/a/359069
+% Solves koma warnings about float@addtolists due to some packages that are incompatible.
+\RequirePackage{scrhack}
 
 
 
