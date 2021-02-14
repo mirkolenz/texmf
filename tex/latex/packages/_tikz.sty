@@ -18,7 +18,7 @@
 \ProcessOptions\relax
 
 \if@tikzexternal
-      \usetikzlibrary{external}
+      \usepgfplotslibrary{external} % https://tex.stackexchange.com/a/341662
       \tikzexternalize[prefix=tikz/]
       \tikzset{png export/.style={
             external/system call={
