@@ -18,13 +18,16 @@
 \ProcessOptions\relax
 
 \if@tikzexternal
-      \usepgfplotslibrary{external} % creates a tight self-contained pdf figure for each tikzpicture
-      \tikzexternalize % comment out to debug if latex errors: generates the external pdf
-      \tikzset{external/force remake} % otherwise will use external pdf if it exists
+      \usetikzlibrary{external}
+      \tikzexternalize[prefix=tikz/]
       \tikzset{png export/.style={
             external/system call={
-                  pdflatex \tikzexternalcheckshellescape
-                        -halt-on-error -interaction=batchmode -jobname "\image" "\texsource";
+                  pdflatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource";
                   convert -units pixelsperinch -density 300 "\image.pdf" "\image.png";
       }}}
+
+      \newcommand{\inputtikz}[1]{%
+            \tikzsetnextfilename{#1}%
+            \input{#1.tikz}%
+      }
 \fi
