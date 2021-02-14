@@ -1,22 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_todo}
 
-\newif\if@inline\@inlinefalse
+\RequirePackage[
+    layout={footnote,index} % inline, margin, footnote
+]{fixme}
 
-\DeclareOption{disable}{\PassOptionsToPackage{disable}{todonotes}}
-\DeclareOption{inline}{\@inlinetrue}
-\ProcessOptions\relax
-
-\RequirePackage{todonotes}
-\presetkeys{todonotes}{%
-    backgroundcolor=SkyBlue,
-    bordercolor=SkyBlue,
-    linecolor=RoyalBlue,
-    textcolor=black,
-    tickmarkheight=1em,
-    size=footnotesize
-}{}
-
-\if@inline
-    \presetkeys{todonotes}{inline}{}
-\fi
+\newcommand{\todo}[2][]{\fxnote[#1]{#2}}
+\newcommand{\TODO}[2][]{\fxnote[#1,layout={inline,index}]{#2}}
+\renewcommand{\fixmelogo}{\emph{Todo}}
+\renewcommand*\@fxtextstd[3]{\ignorespaces#3: #2} % \fxnotename{#1}:
