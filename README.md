@@ -16,9 +16,9 @@ You can get the path by executing `kpsewhich -var-value=TEXMFHOME`.
 Exemplary TeX document:
 
 ```latex
-\documentclass{_article}
-\usepackage[de,nonumbering]{_init}
-\usepackage{_font-palatino}
+\documentclass{Article}
+\usepackage[de,nonumbering]{Init}
+\usepackage{FontPalatino}
 
 \title{Lorem Ipsum}
 \author{Lorem Ipsum}
