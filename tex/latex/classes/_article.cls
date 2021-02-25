@@ -1,8 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Article}
+\ProvidesClass{_article}
 
 \newcommand{\baseclass}{scrartcl}
-\PassOptionsToPackage{koma}{Init}
+\PassOptionsToPackage{koma}{_init}
 
 \DeclareOption*{
 	\PassOptionsToClass{\CurrentOption}{\baseclass}

@@ -1,8 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Book}
+\ProvidesClass{_book}
 
 \newcommand{\baseclass}{scrbook}
-\PassOptionsToPackage{koma}{Init}
+\PassOptionsToPackage{koma}{_init}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
 \ProcessOptions\relax

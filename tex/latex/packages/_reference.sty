@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{Reference}
+\ProvidesPackage{_reference}
 
 
 \newcommand{\bibparams}{}
@@ -62,12 +62,9 @@
 
 \RequirePackage{acro} % single: Ignore acronyms that occur only once
 \acsetup{
-	hyperref=true,
-	mark-as-used=first,
 	short-format={},
 	long-format={\itshape},
-	cite-cmd={\autocite},
-	group-cite-cmd={\autocite},
+	cite-cmd=\autocite,
 }
 \ExplSyntaxOn
 \NewAcroCommand{\accite}{

@@ -1,8 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Beamer}
+\ProvidesClass{_beamer}
 
 \newcommand{\baseclass}{beamer}
-\PassOptionsToPackage{beamer}{Init}
+\PassOptionsToPackage{beamer}{_init}
 \PassOptionsToPackage{mathrm=sym}{unicode-math}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
