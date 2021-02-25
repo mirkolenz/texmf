@@ -69,6 +69,35 @@
 	cite-cmd={\autocite},
 	group-cite-cmd={\autocite},
 }
+\ExplSyntaxOn
+\NewAcroCommand{\accite}{
+    \acro_cite:
+    \acro_use:n {#1}
+}
+\NewAcroCommand{\Accite}{
+    \acro_cite:
+    \acro_first_upper:
+    \acro_use:n {#1}
+}
+\NewAcroCommand{\aclcite}{
+    \acro_cite:
+    \acro_long:n {#1}
+}
+\NewAcroCommand{\Aclcite}{
+    \acro_cite:
+    \acro_first_upper:
+    \acro_long:n {#1}
+}
+\NewAcroCommand{\acscite}{
+    \acro_cite:
+    \acro_short:n {#1}
+}
+\NewAcroCommand{\Acscite}{
+    \acro_cite:
+    \acro_first_upper:
+    \acro_short:n {#1}
+}
+\ExplSyntaxOff
 
 
 \if@beamer
