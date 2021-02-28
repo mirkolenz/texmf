@@ -1,31 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_code}
 
-
-\RequirePackage{listings}
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
 \algrenewcommand\alglinenumber[1]{\footnotesize #1}
-
-\if@beamer
-	\lstset{
-		basicstyle=\ttfamily\footnotesize,
-		numbers=none,
-		breaklines=true,
-		tabsize=2,
-		xleftmargin=0em
-	}
-\else
-	\lstset{
-		basicstyle=\ttfamily\small,
-		numbers=left,
-		numberstyle=\ttfamily\footnotesize,
-		breaklines=true,
-		tabsize=4,
-		xleftmargin=4em
-	}
-\fi
-
 
 \if@shellescape
 	\RequirePackage{caption}
@@ -56,4 +34,24 @@
 	\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
 
 	\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+\else
+	\RequirePackage{listings}
+	\if@beamer
+		\lstset{
+			basicstyle=\ttfamily\footnotesize,
+			numbers=none,
+			breaklines=true,
+			tabsize=2,
+			xleftmargin=0em
+		}
+	\else
+		\lstset{
+			basicstyle=\ttfamily\small,
+			numbers=left,
+			numberstyle=\ttfamily\footnotesize,
+			breaklines=true,
+			tabsize=4,
+			xleftmargin=4em
+		}
+	\fi
 \fi
