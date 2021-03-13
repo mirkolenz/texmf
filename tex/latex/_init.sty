@@ -4,13 +4,17 @@
 
 \RequirePackage{ifxetex,ifluatex}
 \newif\ifluatexorxetex
+\newif\ifpdftex
 \ifxetex
 	\luatexorxetextrue
+	\pdftexfalse
 \else
 	\ifluatex
 		\luatexorxetextrue
+		\pdftexfalse
 	\else
 		\luatexorxetexfalse
+		\pdftextrue
 	\fi
 \fi
 
