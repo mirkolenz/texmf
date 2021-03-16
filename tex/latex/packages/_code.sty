@@ -2,6 +2,11 @@
 \ProvidesPackage{_code}
 
 \RequirePackage{algorithm}
+\makeatletter
+\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}
+\@addtoreset{algorithm}{chapter}
+\makeatother
+
 \RequirePackage[noend]{algpseudocode}
 \algrenewcommand\alglinenumber[1]{\footnotesize #1}
 
