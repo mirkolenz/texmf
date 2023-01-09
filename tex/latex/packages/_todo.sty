@@ -1,14 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_todo}
 
-\PassOptionsToPackage{layout={footnote,index}}{fixme} % inline, margin, footnote
-
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{fixme}}
 \ProcessOptions\relax
 
 \RequirePackage{fixme}
-
-\newcommand{\todo}[2][]{\fxnote[#1]{#2}}
-\newcommand{\TODO}[2][]{\fxnote[#1,layout={inline,index}]{#2}}
-\renewcommand{\fixmelogo}{\emph{Todo}}
-\renewcommand*\@fxtextstd[3]{\ignorespaces#3: #2} % \fxnotename{#1}:
+\fxsetup{
+    theme=color,
+    layout={inline, index}
+}
+\let\todo\fxnote
