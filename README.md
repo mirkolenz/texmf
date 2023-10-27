@@ -18,7 +18,7 @@ Exemplary TeX document:
 ```latex
 \documentclass{_article}
 \usepackage[de,nonumbering]{_init}
-\usepackage{_font-palatino}
+\usepackage{_font_palatino}
 
 \title{Lorem Ipsum}
 \author{Lorem Ipsum}
@@ -34,4 +34,4 @@ Exemplary TeX document:
 \end{document}
 ```
 
-The documents can be compiled using either pdfLaTeX, XeLaTeX or LuaLaTeX (recommended).
+The documents can be compiled using either pdfLaTeX, XeLaTeX or LuaLaTeX.
