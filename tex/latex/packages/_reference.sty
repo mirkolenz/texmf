@@ -69,6 +69,12 @@
 	cite-cmd={\autocite},
 	group-cite-cmd={\autocite},
 }
+% fix for issue with v2 in texlive 2024: https://tex.stackexchange.com/a/724382
+\acsetup{display-foreign = false}
+\acsetup{foreign-format = {\scshape}}
+\ExplSyntaxOn
+\prop_new:N \l__acro_foreign_format_prop
+\ExplSyntaxOff
 
 \if@beamer
 \renewcommand*{\bibfont}{\footnotesize}
