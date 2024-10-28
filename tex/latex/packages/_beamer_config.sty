@@ -1,7 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_beamer_config}
 
-
 % \newif\if@metropolis\@metropolisfalse
 \newif\if@focus\@focusfalse
 \newif\if@dark\@darkfalse
@@ -20,18 +19,18 @@
 
 \DeclareOption{white}{} % Default option
 \DeclareOption{black}{
-	\definecolor{fgColor}{HTML}{FFFFFF}
-	\definecolor{bgColor}{HTML}{000000}
-	\@darktrue
+  \definecolor{fgColor}{HTML}{FFFFFF}
+  \definecolor{bgColor}{HTML}{000000}
+  \@darktrue
 }
 \DeclareOption{light}{
-	\definecolor{fgColor}{HTML}{23373b}
-	\definecolor{bgColor}{HTML}{fafafa}
+  \definecolor{fgColor}{HTML}{23373b}
+  \definecolor{bgColor}{HTML}{fafafa}
 }
 \DeclareOption{dark}{
-	\definecolor{fgColor}{HTML}{fafafa}
-	\definecolor{bgColor}{HTML}{23373b}
-	\@darktrue
+  \definecolor{fgColor}{HTML}{fafafa}
+  \definecolor{bgColor}{HTML}{23373b}
+  \@darktrue
 }
 \DeclareOption{metropolis}{\@metropolistrue}
 \DeclareOption{focus}{\@focustrue}
@@ -41,15 +40,13 @@
 \DeclareOption{onlynotes}{\@onlynotestrue}
 \ProcessOptions\relax
 
-
-
 % \if@metropolis
 \usetheme[
-	progressbar=frametitle,
-	% sectionpage=none,
-	subsectionpage=progressbar,
-	% titleformat frame=allsmallcaps,
-	block=fill
+  progressbar=frametitle,
+  % sectionpage=none,
+  subsectionpage=progressbar,
+  % titleformat frame=allsmallcaps,
+  block=fill
 ]{metropolis}
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -64,32 +61,23 @@
 \setbeamerfont{framesource}{size=\scriptsize}
 
 \setbeamercolor{progress bar}{%
-	fg=fgColor,
-	bg=highlightColor
+  fg=fgColor,
+  bg=highlightColor
 }
 % \fi
 
 \if@focus
-	\usetheme[numbering=progressbar,nofirafonts]{focus}
-	\colorlet{main}{fgColor}
-	\colorlet{background}{bgColor}
+\usetheme[numbering=progressbar,nofirafonts]{focus}
+\colorlet{main}{fgColor}
+\colorlet{background}{bgColor}
 \fi
-
 
 % \setlength{\leftmargini}{0pt}
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
 \setlength\fboxsep{10pt}
 
-
-
-
-
 \RequirePackage[absolute,overlay]{textpos}
-
-
-
-
 
 \newcommand{\footsourceW}{8cm}
 \newcommand{\footsourceX}{8cm}
@@ -97,48 +85,41 @@
 \newcommand{\footsourceprefix}{Source:}
 
 \if@de
-	\renewcommand{\footsourceprefix}{Quelle:}
+\renewcommand{\footsourceprefix}{Quelle:}
 \fi
 
-
-\newcommand{\footsource}[2][\footsourceprefix]{\begin{textblock*}{\footsourceW}(\footsourceX,\footsourceY)
-	\begin{beamercolorbox}[ht=0.5cm,left]{framesource}
-		\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \textbf{#1} {#2}
-	\end{beamercolorbox}
+\newcommand{\footsource}[2][\footsourceprefix]{
+  \begin{textblock*}{\footsourceW}(\footsourceX,\footsourceY)
+    \begin{beamercolorbox}[ht=0.5cm,left]{framesource}
+      \usebeamerfont{framesource}\usebeamercolor[fg]{framesource} \textbf{#1} {#2}
+    \end{beamercolorbox}
 \end{textblock*}}
 \newcommand{\fcite}[1]{\footsource{\textcite{#1}}}
 
-
 \newcommand{\displaysource}[2][\footnotesize]{%
-	{%
-		\setlength\parindent{0em}%
-		\setlength{\parskip}{0em}%
-		\par\ignorespaces% \par\noindent\ignorespaces
-		\vspace{-.2em}%
-		#1%
-		\textcolor{highlightColor}{#2}%
-		\ignorespacesafterend%
-	}%
+  {%
+    \setlength\parindent{0em}%
+    \setlength{\parskip}{0em}%
+    \par\ignorespaces% \par\noindent\ignorespaces
+    \vspace{-.2em}%
+    #1%
+    \textcolor{highlightColor}{#2}%
+    \ignorespacesafterend%
+  }%
 }
 \newcommand{\dcite}[2][\footnotesize]{\displaysource[#1]{\parencite{#2}}}
 
-
 \newcommand{\textsource}[2][\footnotesize]{%
-	{#1\textcolor{highlightColor}{#2}}%
+  {#1\textcolor{highlightColor}{#2}}%
 }
 \newcommand{\tcite}[2][\normalsize]{\textsource[#1]{\textcite{#2}}}
 \newcommand{\pcite}[2][\footnotesize]{\textsource[#1]{\parencite{#2}}}
 
-
-
-
-
 \newcommand{\icon}[1]{%
-	\begin{center}
-		\resizebox{!}{0.5\textwidth}{#1}
-	\end{center}%
+  \begin{center}
+    \resizebox{!}{0.5\textwidth}{#1}
+  \end{center}%
 }
-
 
 % Available modes: https://tex.stackexchange.com/questions/263440/what-are-the-available-modes-in-beamer
 \newcommand{\n}{}
@@ -146,10 +127,10 @@
 \newcommand{\pdfnote}[1]{}
 
 \newcommand{\beamernotesconfig}[1]{
-	\renewcommand{\n}{\newline}
-	\renewcommand{\tab}{}
+  \renewcommand{\n}{\newline}
+  \renewcommand{\tab}{}
 
-	\renewcommand{\pdfnote}[1]{\note{#1}}
+  \renewcommand{\pdfnote}[1]{\note{#1}}
 }
 
 \setbeamercolor{note page}{bg=white, fg=black}
@@ -158,63 +139,58 @@
 \setbeameroption{hide notes}
 
 \if@sidenotes
-	\beamernotesconfig{#1}
+\beamernotesconfig{#1}
 
-	\RequirePackage{pgfpages}
-	\setbeameroption{show notes on second screen}
-	\setbeamertemplate{note page}{\insertnote}
+\RequirePackage{pgfpages}
+\setbeameroption{show notes on second screen}
+\setbeamertemplate{note page}{\insertnote}
 \fi
 
 \if@onlynotes
-	\beamernotesconfig{#1}
-	\setbeameroption{show only notes}
+\beamernotesconfig{#1}
+\setbeameroption{show only notes}
 \fi
 
 \if@pagenotes
-	\beamernotesconfig{#1}
-	\setbeameroption{show notes}
+\beamernotesconfig{#1}
+\setbeameroption{show notes}
 \fi
 
 \if@commentnotes
-	\RequirePackage{pdfcomment}
-	\renewcommand{\n}{\textLF}
-	\renewcommand{\tab}{\textHT}
+\RequirePackage{pdfcomment}
+\renewcommand{\n}{\textLF}
+\renewcommand{\tab}{\textHT}
 
-	\renewcommand{\pdfnote}[1]{
-		\begin{textblock*}{1mm}(\paperwidth-1cm,1cm)
-			\pdfcomment[icon=note]{#1}
-		\end{textblock*}
-	}
+\renewcommand{\pdfnote}[1]{
+  \begin{textblock*}{1mm}(\paperwidth-1cm,1cm)
+    \pdfcomment[icon=note]{#1}
+  \end{textblock*}
+}
 % \else \PassOptionsToPackage{final}{pdfcomment}
 \fi
-
 
 \newcommand{\pdfmovie}[4]{\href{run:#1}{\framebox{\parbox[c][#3][c]{#2}{\center #4}}}}
 % Example: \pdfmovie{720p25_pedestrian.mov}{6cm}{4cm}{H.264 avi}
 
-
-
 \RequirePackage{appendixnumberbeamer}
 
-
-
 \newcommand{\themedfile}[1]{%
-	\if@dark%
-		#1-dark%
-	\else%
-		#1-light%
-	\fi%
+  \if@dark%
+  #1-dark%
+  \else%
+  #1-light%
+  \fi%
 }
 
 \newcommand{\themedbox}[2]{%
-	\if@dark%
-		{\setlength{\fboxsep}{#1}\colorbox{fgColor}{#2}}%
-	\else%
-		#2%
-	\fi%
+  \if@dark%
+  {\setlength{\fboxsep}{#1}\colorbox{fgColor}{#2}}%
+  \else%
+  #2%
+  \fi%
 }
 
 % https://tex.stackexchange.com/questions/29227/can-includegraphics-be-used-to-change-an-image-color
 \newcommand{\themedcolor}[1]{%
-	{\color{fgColor} #1}%
+  {\color{fgColor} #1}%
 }

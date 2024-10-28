@@ -7,52 +7,52 @@
 \algrenewcommand\alglinenumber[1]{\footnotesize #1}
 
 \if@shellescape
-	\RequirePackage{caption}
-	\RequirePackage[newfloat=true]{minted}
-	\usemintedstyle{manni} % bw
+\RequirePackage{caption}
+\RequirePackage[newfloat=true]{minted}
+\usemintedstyle{manni} % bw
 
-	\setminted{
-		linenos,
-		breaklines,
-		breakafter=),
-		breakbefore=.,
-		% breakbytoken,
-		% breakbytokenanywhere,
-		breakaftersymbolpre=,
-		breakbeforesymbolpre=,
-		breakanywheresymbolpre=,
-		mathescape,
-		autogobble,
-		framesep=0.5em,
-		fontsize=\small,
-		tabsize=4,
-		baselinestretch=1.0,
-		xleftmargin=2em,
-		% frame=lines,
-	}
-	\setmintedinline{}
+\setminted{
+  linenos,
+  breaklines,
+breakafter=),
+breakbefore=.,
+% breakbytoken,
+% breakbytokenanywhere,
+breakaftersymbolpre=,
+breakbeforesymbolpre=,
+breakanywheresymbolpre=,
+mathescape,
+autogobble,
+framesep=0.5em,
+fontsize=\small,
+tabsize=4,
+baselinestretch=1.0,
+xleftmargin=2em,
+% frame=lines,
+}
+\setmintedinline{}
 
-	\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
 
-	\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
 \else
-	\RequirePackage{listings}
-	\if@beamer
-		\lstset{
-			basicstyle=\ttfamily\footnotesize,
-			numbers=none,
-			breaklines=true,
-			tabsize=2,
-			xleftmargin=0em
-		}
-	\else
-		\lstset{
-			basicstyle=\ttfamily\small,
-			numbers=left,
-			numberstyle=\ttfamily\footnotesize,
-			breaklines=true,
-			tabsize=4,
-			xleftmargin=4em
-		}
-	\fi
+\RequirePackage{listings}
+\if@beamer
+\lstset{
+basicstyle=\ttfamily\footnotesize,
+numbers=none,
+breaklines=true,
+tabsize=2,
+xleftmargin=0em
+}
+\else
+\lstset{
+basicstyle=\ttfamily\small,
+numbers=left,
+numberstyle=\ttfamily\footnotesize,
+breaklines=true,
+tabsize=4,
+xleftmargin=4em
+}
+\fi
 \fi

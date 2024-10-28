@@ -1,10 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_thesis}
 
-
-
 \RequirePackage[sharp]{easylist}
-
 
 \theoremstyle{definition}
 \newtheorem{hypothesis}{Hypothesis}
@@ -21,37 +18,36 @@
 % \crefrangemultiformat{hypothesis}{#3\textbf{H#1}#4 to #5\textbf{H#2}#6}{ and #3\textbf{H#1}#4 to #5\textbf{H#2}#6}{, #3\textbf{H#1}#4 to #5\textbf{H#2}#6}{, and #3\textbf{H#1}#4 to #5\textbf{H#2}#6}
 % \Crefrangemultiformat{hypothesis}{#3\textbf{H#1}#4 to #5\textbf{H#2}#6}{ and #3\textbf{H#1}#4 to #5\textbf{H#2}#6}{, #3\textbf{H#1}#4 to #5\textbf{H#2}#6}{, and #3\textbf{H#1}#4 to #5\textbf{H#2}#6}
 
-
 \@ifundefined{abstract}{
-    \newenvironment{abstract}
-    {
-        \cleardoublepage\thispagestyle{empty}\null\vfill
-        \begin{center}
-            \bfseries\abstractname
-        \end{center}
-        \noindent\ignorespaces
-    }{
-        \vfill\null
-    }
+  \newenvironment{abstract}
+  {
+    \cleardoublepage\thispagestyle{empty}\null\vfill
+    \begin{center}
+      \bfseries\abstractname
+    \end{center}
+    \noindent\ignorespaces
+  }{
+    \vfill\null
+  }
 }{}
 
 \newcommand{\chapterauthor}[1]
 {
-    {\parindent0pt\vspace*{-25pt}
-            \large\scshape#1
-            \par\nobreak\vspace*{25pt}}
+  {\parindent0pt\vspace*{-25pt}
+    \large\scshape#1
+  \par\nobreak\vspace*{25pt}}
 }
 
 \newcommand{\sectionauthor}[1]
 {
-    {\parindent0pt\vspace*{-5pt}
-            \scshape#1
-            \par\nobreak\vspace*{5pt}}
+  {\parindent0pt\vspace*{-5pt}
+    \scshape#1
+  \par\nobreak\vspace*{5pt}}
 }
 
 \newcommand{\subsectionauthor}[1]
 {
-    {\parindent0pt\vspace*{-5pt}
-            \small\scshape#1
-            \par\nobreak\vspace*{5pt}}
+  {\parindent0pt\vspace*{-5pt}
+    \small\scshape#1
+  \par\nobreak\vspace*{5pt}}
 }

@@ -1,25 +1,23 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_reference}
 
-
 \newcommand{\bibparams}{}
 
 \DeclareOption{authoryear}{\renewcommand{\bibparams}{style=authoryear, dashed=false, uniquelist=false}}
 \DeclareOption{numeric}{\renewcommand{\bibparams}{style=numeric}}
 \ProcessOptions\relax
 
-
 \RequirePackage[
-	backend=biber,
-	\bibparams,
-	maxbibnames=99, % show all authors in bibliography
-	maxcitenames=2, % show 2 authors in citations
-	terseinits=true, % see below
-	giveninits=true, % show only initials
-	uniquename=init, % sort using initials
-	date=year, % show only the year
-	isbn=false, % hide isbn
-	sortcites=true, % sort citations if multiple are given
+  backend=biber,
+  \bibparams,
+  maxbibnames=99, % show all authors in bibliography
+  maxcitenames=2, % show 2 authors in citations
+  terseinits=true, % see below
+  giveninits=true, % show only initials
+  uniquename=init, % sort using initials
+  date=year, % show only the year
+  isbn=false, % hide isbn
+  sortcites=true, % sort citations if multiple are given
 ]{biblatex}
 
 % terseinits=true means the following three commands
@@ -27,47 +25,45 @@
 % \renewrobustcmd*{\bibinitdelim}{} % remove space between initials
 % \renewrobustcmd*{\bibinithyphendelim}{} % remove hyphen between initials
 
-
 % Show only one of the following: DOI, ePrint, URL
 \DeclareSourcemap{
-	\maps[datatype=bibtex]{
-		\map{ % If DOI is available, hide eprint and url.
-			\step[fieldsource=doi,final]
-			\step[fieldset=eprint,null]
-			\step[fieldset=url,null]
-			\step[fieldset=urldate,null]
-		}
-		\map{ % If eprint is available, hide url
-			\step[fieldsource=eprint,final]
-			\step[fieldset=url,null]
-			\step[fieldset=urldate,null]
-		}
-		\map{ % If proceedings title is available, hide conference name
-			\step[fieldsource=booktitle,final]
-			\step[fieldset=eventtitle,null]
-		}
-		\map{ % Hide editor if an author exists
-			\step[fieldsource=author, final]
-			\step[fieldset=editor, null]
-		}
-		\map{ % Hide all series editors
-			\step[fieldset=editorb, null]
-		}
-	}
+  \maps[datatype=bibtex]{
+    \map{ % If DOI is available, hide eprint and url.
+      \step[fieldsource=doi,final]
+      \step[fieldset=eprint,null]
+      \step[fieldset=url,null]
+      \step[fieldset=urldate,null]
+    }
+    \map{ % If eprint is available, hide url
+      \step[fieldsource=eprint,final]
+      \step[fieldset=url,null]
+      \step[fieldset=urldate,null]
+    }
+    \map{ % If proceedings title is available, hide conference name
+      \step[fieldsource=booktitle,final]
+      \step[fieldset=eventtitle,null]
+    }
+    \map{ % Hide editor if an author exists
+      \step[fieldsource=author, final]
+      \step[fieldset=editor, null]
+    }
+    \map{ % Hide all series editors
+      \step[fieldset=editorb, null]
+    }
+  }
 }
 
 \renewcommand*{\revsdnamepunct}{} % remove comma between last and first name
 \DeclareNameAlias{sortname}{family-given}
 
-
 \RequirePackage{acro}[=v2] % single: Ignore acronyms that occur only once
 \acsetup{
-	hyperref=true,
-	mark-as-used=first,
-	short-format={},
-	long-format={\itshape},
-	cite-cmd={\autocite},
-	group-cite-cmd={\autocite},
+  hyperref=true,
+  mark-as-used=first,
+  short-format={},
+  long-format={\itshape},
+  cite-cmd={\autocite},
+  group-cite-cmd={\autocite},
 }
 % fix for issue with v2 in texlive 2024: https://tex.stackexchange.com/a/724382
 \acsetup{display-foreign = false}
@@ -81,28 +77,30 @@
 % \setbeamertemplate{bibliography item}[text]
 
 \setbeamertemplate{bibliography item}{
-	\ifboolexpr{
-		test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
-		or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
-		or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}
-	}{\setbeamertemplate{bibliography item}[book]}
-	{\ifentrytype{online}
-		{\setbeamertemplate{bibliography item}[online]}
-		{\setbeamertemplate{bibliography item}[article]}
-	}
-	\usebeamertemplate{bibliography item}
+  \ifboolexpr{
+    test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+    or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+    or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}
+  }{\setbeamertemplate{bibliography item}[book]}
+  {\ifentrytype{online}
+    {\setbeamertemplate{bibliography item}[online]}
+    {\setbeamertemplate{bibliography item}[article]}
+  }
+  \usebeamertemplate{bibliography item}
 }
 
 \defbibenvironment{bibliography}{
-	\list{}{
-		\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
-		\setlength{\leftmargin}{\labelwidth}
-		\setlength{\labelsep}{\biblabelsep - 1em}
-		\addtolength{\leftmargin}{\labelsep}
-		\setlength{\itemsep}{\bibitemsep + 1em}
-		\setlength{\parsep}{\bibparsep}
-	}
+  \list{}{
+    \settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
+    \setlength{\leftmargin}{\labelwidth}
+    \setlength{\labelsep}{\biblabelsep - 1em}
+    \addtolength{\leftmargin}{\labelsep}
+    \setlength{
+  \itemsep}{\bibitemsep + 1em}
+    \setlength{\parsep}{\bibparsep}
+  }
 }
 {\endlist}
-{\item}
+{
+\item}
 \fi

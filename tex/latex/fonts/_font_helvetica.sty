@@ -2,12 +2,12 @@
 \ProvidesPackage{_font_helvetica}
 
 \ifluatexorxetex
-	\setmainfont{TeX Gyre Heros}
-	\setsansfont{TeX Gyre Heros}
-	\setmonofont[Numbers={Lining, Monospaced}, Scale=MatchLowercase]{inconsolata}
-	\setmathfont{Asana Math}
+\setmainfont{TeX Gyre Heros}
+\setsansfont{TeX Gyre Heros}
+\setmonofont[Numbers={Lining, Monospaced}, Scale=MatchLowercase]{inconsolata}
+\setmathfont{Asana Math}
 \else
-	\RequirePackage{tgheros}
-	\renewcommand*\familydefault{\sfdefault}
-	\RequirePackage{inconsolata}
+\RequirePackage{tgheros}
+\renewcommand*\familydefault{\sfdefault}
+\RequirePackage{inconsolata}
 \fi

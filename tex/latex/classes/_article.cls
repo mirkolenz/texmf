@@ -5,7 +5,7 @@
 \PassOptionsToPackage{koma}{_init}
 
 \DeclareOption*{
-	\PassOptionsToClass{\CurrentOption}{\baseclass}
+  \PassOptionsToClass{\CurrentOption}{\baseclass}
 }
 \ProcessOptions\relax
 

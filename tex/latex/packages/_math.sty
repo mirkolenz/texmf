@@ -56,42 +56,40 @@
 % https://tex.stackexchange.com/questions/30619/what-is-the-best-symbol-for-vector-matrix-transpose
 \newcommand*{\transpose}{{\mkern-1.5mu\mathsf{T}}}
 
-
-
 \DeclareOption{theorems}{
-	\newenvironment{proof*}{
-		\par
-		\pushQED{\qed}
-	}{
-		\popQED
-	}
+  \newenvironment{proof*}{
+    \par
+    \pushQED{\qed}
+  }{
+    \popQED
+  }
 
-	\theoremstyle{plain}
-	\newtheorem{theorem}{Theorem}[section]
-	\newtheorem{lemma}[theorem]{Lemma}
-	\newtheorem{proposition}[theorem]{Proposition}
-	\newtheorem*{corollary}{Corollary}
+  \theoremstyle{plain}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem*{corollary}{Corollary}
 
-	\theoremstyle{definition}
-	\newtheorem{definition}{Definition}[section]
-	\newtheorem{conjecture}{Conjecture}[section]
-	\newtheorem{example}{Example}[section]
+  \theoremstyle{definition}
+  \newtheorem{definition}{Definition}[section]
+  \newtheorem{conjecture}{Conjecture}[section]
+  \newtheorem{example}{Example}[section]
 
-	\theoremstyle{remark}
-	\newtheorem*{remark}{Remark}
-	\newtheorem*{note}{Note}
-	\newtheorem{case}{Case}
+  \theoremstyle{remark}
+  \newtheorem*{remark}{Remark}
+  \newtheorem*{note}{Note}
+  \newtheorem{case}{Case}
 
-	% plain
-	% boldface title, italicized body
-	% Theorem, Lemma, Corollary, Proposition, Conjecture, Criterion, Assertion
+  % plain
+  % boldface title, italicized body
+  % Theorem, Lemma, Corollary, Proposition, Conjecture, Criterion, Assertion
 
-	% definition
-	% boldface title, roman body
-	% Definition, Condition, Problem, Example, Exercise, Algorithm, Question, Axiom, Property, Assumption, Hypothesis
+  % definition
+  % boldface title, roman body
+  % Definition, Condition, Problem, Example, Exercise, Algorithm, Question, Axiom, Property, Assumption, Hypothesis
 
-	% remark
-	% italicized title, roman body
-	% Remark, Note, Notation, Claim, Summary, Acknowledgment, Case, Conclusion
+  % remark
+  % italicized title, roman body
+  % Remark, Note, Notation, Claim, Summary, Acknowledgment, Case, Conclusion
 }
 \ProcessOptions\relax

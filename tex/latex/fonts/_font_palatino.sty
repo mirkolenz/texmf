@@ -2,21 +2,21 @@
 \ProvidesPackage{_font_palatino}
 
 \ifluatexorxetex
-	\setmainfont{TeX Gyre Pagella}
+\setmainfont{TeX Gyre Pagella}
 
-	\setsansfont[
-		Scale=MatchUppercase,
-		BoldFont=* SemiBold,
-		BoldItalicFont=* SemiBold Italic
-	]{Fira Sans}
+\setsansfont[
+  Scale=MatchUppercase,
+  BoldFont=* SemiBold,
+  BoldItalicFont=* SemiBold Italic
+]{Fira Sans}
 
-	\setmonofont[Numbers={Lining, Monospaced}, Scale=MatchLowercase]{Fira Mono}
+\setmonofont[Numbers={Lining, Monospaced}, Scale=MatchLowercase]{Fira Mono}
 
-	\setmathfont{TeX Gyre Pagella Math}
-	\setmathfont[range=\setminus]{Asana Math}
+\setmathfont{TeX Gyre Pagella Math}
+\setmathfont[range=\setminus]{Asana Math}
 \else
-	\RequirePackage{tgpagella}
-	\RequirePackage[lining, tabular, semibold]{FiraSans}
-	\RequirePackage{FiraMono}
-	\RequirePackage{newpxmath} % \RequirePackage{mathpazo}
+\RequirePackage{tgpagella}
+\RequirePackage[lining, tabular, semibold]{FiraSans}
+\RequirePackage{FiraMono}
+\RequirePackage{newpxmath} % \RequirePackage{mathpazo}
 \fi

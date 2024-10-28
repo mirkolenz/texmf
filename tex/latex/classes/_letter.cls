@@ -8,17 +8,17 @@
 \ProcessOptions\relax
 
 \LoadClass[
-	foldmarks=true,
-	foldmarks=HPv,
-	version=last,
-	fromalign=right,
-	fromphone,
-	fromemail,
-	fromlogo,
-	% fromurl,
-	% frommobilephone,
-	% fromrule=afteraddress,
-	firstfoot=false,
-	enlargefirstpage,
-	locfield=wide
+  foldmarks=true,
+  foldmarks=HPv,
+  version=last,
+  fromalign=right,
+  fromphone,
+  fromemail,
+  fromlogo,
+  % fromurl,
+  % frommobilephone,
+  % fromrule=afteraddress,
+  firstfoot=false,
+  enlargefirstpage,
+  locfield=wide
 ]{\baseclass}

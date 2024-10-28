@@ -2,18 +2,18 @@
 \ProvidesPackage{_font_minion}
 
 \ifluatexorxetex
-	\setmainfont{Source Serif Pro}
-	\setsansfont{Source Sans Pro}
-	\setmonofont[Numbers={Lining, Monospaced}]{Source Code Pro}
+\setmainfont{Source Serif Pro}
+\setsansfont{Source Sans Pro}
+\setmonofont[Numbers={Lining, Monospaced}]{Source Code Pro}
 
-	\setmathfont{LatinModern-Math.otf}
-	\setmathfont[range=\mathup/{Latin,latin}]{Source Serif Pro}
-	\setmathfont[range=\mathit/{Latin,latin}]{Source Serif Pro Italic}
-	\setmathfont[range=\mathbfup/{Latin,latin}]{Source Serif Pro Bold}
-	\setmathfont[range=\mathbfit/{Latin,latin}]{Source Serif Pro Bold Italic}
+\setmathfont{LatinModern-Math.otf}
+\setmathfont[range=\mathup/{Latin,latin}]{Source Serif Pro}
+\setmathfont[range=\mathit/{Latin,latin}]{Source Serif Pro Italic}
+\setmathfont[range=\mathbfup/{Latin,latin}]{Source Serif Pro Bold}
+\setmathfont[range=\mathbfit/{Latin,latin}]{Source Serif Pro Bold Italic}
 \else
-	\RequirePackage{sourceserifpro}
-	\RequirePackage{sourcesanspro}
-	\RequirePackage{sourcecodepro}
-	% \RequirePackage{mathpazo}
+\RequirePackage{sourceserifpro}
+\RequirePackage{sourcesanspro}
+\RequirePackage{sourcecodepro}
+% \RequirePackage{mathpazo}
 \fi

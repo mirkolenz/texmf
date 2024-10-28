@@ -1,23 +1,21 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_init}
 
-
 \RequirePackage{ifxetex,ifluatex}
 \newif\ifluatexorxetex
 \newif\ifpdftex
 \ifxetex
-	\luatexorxetextrue
-	\pdftexfalse
+\luatexorxetextrue
+\pdftexfalse
 \else
-	\ifluatex
-		\luatexorxetextrue
-		\pdftexfalse
-	\else
-		\luatexorxetexfalse
-		\pdftextrue
-	\fi
+\ifluatex
+\luatexorxetextrue
+\pdftexfalse
+\else
+\luatexorxetexfalse
+\pdftextrue
 \fi
-
+\fi
 
 \newif\if@de\@defalse
 \newif\if@beamer\@beamerfalse
@@ -26,39 +24,36 @@
 \newif\if@shellescape\@shellescapefalse
 
 \DeclareOption{koma}{
-	\KOMAoptions{
-		% DIV=calc
-	}
-	\@komatrue
+  \KOMAoptions{
+    % DIV=calc
+  }
+  \@komatrue
 }
 \DeclareOption{de}{\@detrue}
 \DeclareOption{beamer}{\@beamertrue}
 \DeclareOption{overleaf}{\@overleaftrue}
 \DeclareOption{shellescape}{\@shellescapetrue}
 \DeclareOption{fapro}{
-	\ifluatexorxetex
-		\PassOptionsToPackage{pro}{fontawesome5}
-	\fi
+  \ifluatexorxetex
+  \PassOptionsToPackage{pro}{fontawesome5}
+  \fi
 }
 \DeclareOption{nonumbering}{
-	\setcounter{secnumdepth}{0}
-	% \setcounter{tocdepth}{0}
+  \setcounter{secnumdepth}{0}
+  % \setcounter{tocdepth}{0}
 }
 \ProcessOptions\relax
 
-
 \newcommand{\languageselection}{}
 \if@de
-	\renewcommand{\languageselection}{english,ngerman}
+\renewcommand{\languageselection}{english,ngerman}
 \else
-	\renewcommand{\languageselection}{ngerman,english}
+\renewcommand{\languageselection}{ngerman,english}
 \fi
 
 \PassOptionsToPackage{\languageselection}{babel}
 \PassOptionsToPackage{\languageselection}{cleveref}
 \PassOptionsToPackage{labelfont=bf,sf, labelsep=quad}{caption}
-
-
 
 \RequirePackage{babel}
 
@@ -75,84 +70,71 @@
 \newcommand{\numberstyle}[1]{}
 
 \ifluatexorxetex
-	\RequirePackage[quiet, no-math]{fontspec}
-	\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}, math-style=ISO, mathbf=sym]{unicode-math}
-	\defaultfontfeatures{
-		Ligatures=Common,
-		Numbers={Lining, Monospaced}
-		% Lining, OldStyle
-		% Proportional, Monospaced
-	}
+\RequirePackage[quiet, no-math]{fontspec}
+\RequirePackage[warnings-off={mathtools-colon, mathtools-overbracket}, math-style=ISO, mathbf=sym]{unicode-math}
+\defaultfontfeatures{
+  Ligatures=Common,
+  Numbers={Lining, Monospaced}
+  % Lining, OldStyle
+  % Proportional, Monospaced
+}
 
-	\renewcommand{\numberstyle}[1]{\addfontfeatures{Numbers={#1}}}
+\renewcommand{\numberstyle}[1]{\addfontfeatures{Numbers={#1}}}
 \fi
 
-
 \RequirePackage{mathtools} % load after unicode-math
-
 
 \RequirePackage{fontawesome5}
 \RequirePackage{xurl}
 
-
-
-
 \PassOptionsToPackage{unicode}{hyperref}
 \if@beamer
 \else
-	\PassOptionsToPackage{pdfusetitle}{hyperref}
+\PassOptionsToPackage{pdfusetitle}{hyperref}
 \fi
 
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{hyperref}
 
 \hypersetup{
-	% colorlinks,
-	% linkcolor={red!50!black},
-	% citecolor={blue!50!black},
-	% urlcolor={blue!80!black},
-	hidelinks
+  % colorlinks,
+  % linkcolor={red!50!black},
+  % citecolor={blue!50!black},
+  % urlcolor={blue!80!black},
+  hidelinks
 }
-
-
-
 
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg,.gif}
 \graphicspath{{img/}}
 
-
 \RequirePackage[autostyle=true]{csquotes}
 \RequirePackage[useregional, showseconds=false]{datetime2}
 
-
 \if@beamer
 \else
-	\RequirePackage[shortlabels]{enumitem} % inline
+\RequirePackage[shortlabels]{enumitem} % inline
 
-	\newlist{enumerate*}{enumerate*}{1}
-	\setlist[enumerate*]{label=(\roman*)}
+\newlist{enumerate*}{enumerate*}{1}
+\setlist[enumerate*]{label=(\roman*)}
 \fi
 
-
 \if@beamer
 \else
-	\PassOptionsToPackage{noabbrev, capitalize}{cleveref}
+\PassOptionsToPackage{noabbrev, capitalize}{cleveref}
 \fi
 \RequirePackage{cleveref}
 
-
 \newcommand{\init}{
-	% \if@koma
-	% 	\recalctypearea
-	% \fi
+  % \if@koma
+  %   \recalctypearea
+  % \fi
 
-	\if@de
-		% isonums
-		\usepackage{ziffer}
-	\fi
+  \if@de
+  % isonums
+  \usepackage{ziffer}
+  \fi
 }
-
 
 % % CVPR style package
 % \RequirePackage{xspace}
@@ -178,8 +160,6 @@
 % \newcommand{\dof}{d.o.f\onedot}
 % \newcommand{\etal}{\emph{et al}\onedot}
 
-
-
 % \setstretch{1.2}
 % \setlength{\parindent}{0em}
 % \setlength{\parskip}{.5em}
@@ -187,21 +167,21 @@
 \newcommand{\email}[1]{\texttt{\href{mailto:#1}{#1}}}
 
 \newcommand{\maketoc}{
-	\pagenumbering{roman}
-	% \thispagestyle{empty}
-	% \addtocontents{toc}{\protect\thispagestyle{empty}}
-	\tableofcontents
-	\cleardoublepage
-	\pagenumbering{arabic}
-	\setcounter{page}{1}
+  \pagenumbering{roman}
+  % \thispagestyle{empty}
+  % \addtocontents{toc}{\protect\thispagestyle{empty}}
+  \tableofcontents
+  \cleardoublepage
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
 }
 \newcommand{\makefrontmatter}[1]{
-	\frontmatter
-	\maketitle
-	\tableofcontents
-	#1
-	\cleardoublepage
-	\mainmatter
+  \frontmatter
+  \maketitle
+  \tableofcontents
+  #1
+  \cleardoublepage
+  \mainmatter
 }
 
 \clubpenalty=10000
