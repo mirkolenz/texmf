@@ -33,11 +33,6 @@
 \DeclareOption{beamer}{\@beamertrue}
 \DeclareOption{overleaf}{\@overleaftrue}
 \DeclareOption{shellescape}{\@shellescapetrue}
-\DeclareOption{fapro}{
-  \ifluatexorxetex
-  \PassOptionsToPackage{pro}{fontawesome5}
-  \fi
-}
 \DeclareOption{nonumbering}{
   \setcounter{secnumdepth}{0}
   % \setcounter{tocdepth}{0}
@@ -52,7 +47,6 @@
 \fi
 
 \PassOptionsToPackage{\languageselection}{babel}
-\PassOptionsToPackage{\languageselection}{cleveref}
 \PassOptionsToPackage{labelfont=bf,sf, labelsep=quad}{caption}
 
 \RequirePackage{babel}
@@ -80,12 +74,14 @@
 }
 
 \renewcommand{\numberstyle}[1]{\addfontfeatures{Numbers={#1}}}
+\else
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
 \fi
 
 \RequirePackage{mathtools} % load after unicode-math
 
 \RequirePackage{fontawesome5}
-\RequirePackage{xurl}
 
 \PassOptionsToPackage{unicode}{hyperref}
 \if@beamer
@@ -95,7 +91,6 @@
 
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{hyperref}
-
 \hypersetup{
   % colorlinks,
   % linkcolor={red!50!black},
@@ -103,6 +98,8 @@
   % urlcolor={blue!80!black},
   hidelinks
 }
+\RequirePackage{xurl}
+\urlstyle{same}
 
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg,.gif}
@@ -120,11 +117,13 @@
 \setlist[enumerate*]{label=(\roman*)}
 \fi
 
+\RequirePackage{zref-clever}
+\let\cref\zcref
+\let\Cref\zcref
 \if@beamer
 \else
-\PassOptionsToPackage{noabbrev, capitalize}{cleveref}
+\zcsetup{noabbrev, cap}
 \fi
-\RequirePackage{cleveref}
 
 \newcommand*{\init}{
   % \if@koma
@@ -199,19 +198,6 @@
   \cleardoublepage
   \mainmatter
 }
-
-\@ifundefined{abstract}{
-  \newenvironment{abstract}
-  {
-    \cleardoublepage\thispagestyle{empty}\null\vfill
-    \begin{center}
-      \bfseries\abstractname
-    \end{center}
-    \noindent\ignorespaces
-  }{
-    \vfill\null
-  }
-}{}
 
 \clubpenalty=10000
 \widowpenalty=10000
