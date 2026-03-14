@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{_letter}
 
-\newcommand{\baseclass}{scrlttr2}
+\newcommand*{\baseclass}{scrlttr2}
 \PassOptionsToPackage{koma}{_init}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
@@ -22,3 +22,4 @@
   enlargefirstpage,
   locfield=wide
 ]{\baseclass}
+

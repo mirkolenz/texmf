@@ -44,7 +44,7 @@
 }
 \ProcessOptions\relax
 
-\newcommand{\languageselection}{}
+\newcommand*{\languageselection}{}
 \if@de
 \renewcommand{\languageselection}{english,ngerman}
 \else
@@ -67,7 +67,7 @@
 \RequirePackage{xfrac}
 
 \RequirePackage[final, verbose=silent]{microtype}
-\newcommand{\numberstyle}[1]{}
+\newcommand*{\numberstyle}[1]{}
 
 \ifluatexorxetex
 \RequirePackage[quiet, no-math]{fontspec}
@@ -126,7 +126,7 @@
 \fi
 \RequirePackage{cleveref}
 
-\newcommand{\init}{
+\newcommand*{\init}{
   % \if@koma
   %   \recalctypearea
   % \fi
@@ -141,40 +141,48 @@
 % \RequirePackage{xspace}
 % % Add a period to the end of an abbreviation unless there's one already, then \xspace.
 % \DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
-% \newcommand{\@onedot}{\ifx\@let@token.\else.\null\fi\xspace}
+% \newcommand*{\@onedot}{\ifx\@let@token.\else.\null\fi\xspace}
 
-% \newcommand{\eg}{\emph{e.g}\onedot}
-% \newcommand{\Eg}{\emph{E.g}\onedot}
+% \newcommand*{\eg}{\emph{e.g}\onedot}
+% \newcommand*{\Eg}{\emph{E.g}\onedot}
 
-% \newcommand{\zb}{\emph{z.\ B.}\onedot}
+% \newcommand*{\zb}{\emph{z.\ B.}\onedot}
 
-% \newcommand{\ie}{\emph{i.e}\onedot}
-% \newcommand{\Ie}{\emph{I.e}\onedot}
+% \newcommand*{\ie}{\emph{i.e}\onedot}
+% \newcommand*{\Ie}{\emph{I.e}\onedot}
 
-% \newcommand{\cf}{\emph{c.f}\onedot}
-% \newcommand{\Cf}{\emph{C.f}\onedot}
+% \newcommand*{\cf}{\emph{c.f}\onedot}
+% \newcommand*{\Cf}{\emph{C.f}\onedot}
 
-% \newcommand{\etc}{\emph{etc}\onedot}
-% \newcommand{\vs}{\emph{vs}\onedot}
+% \newcommand*{\etc}{\emph{etc}\onedot}
+% \newcommand*{\vs}{\emph{vs}\onedot}
 
-% \newcommand{\wrt}{w.r.t\onedot}
-% \newcommand{\dof}{d.o.f\onedot}
-% \newcommand{\etal}{\emph{et al}\onedot}
+% \newcommand*{\wrt}{w.r.t\onedot}
+% \newcommand*{\dof}{d.o.f\onedot}
+% \newcommand*{\etal}{\emph{et al}\onedot}
 
 % \setstretch{1.2}
 % \setlength{\parindent}{0em}
 % \setlength{\parskip}{.5em}
 
-\newcommand*{\mailto}[1]{\href{mailto:#1}{#1}}
-\newcommand*{\tel}[1]{\href{tel:#1}{#1}}
-\newcommand*{\http}[1]{\href{http://#1}{#1}}
-\newcommand*{\https}[1]{\href{https://#1}{#1}}
-\newcommand*{\github}[1]{\https{github.com/#1}}
-\newcommand*{\anonymousGithub}[1]{\https{anonymous.4open.science/r/#1}}
-\newcommand*{\zenodo}[1]{\https{zenodo.org/records/#1}}
-\newcommand*{\doi}[1]{\https{doi.org/#1}}
+\newcommand*{\schemeLink}[2]{\href{#1#2}{\nolinkurl{#2}}}
+\newcommand*{\mailtoLink}[1]{\schemeLink{mailto:}{#1}}
+\newcommand*{\telLink}[1]{\schemeLink{tel:}{#1}}
+\newcommand*{\httpLink}[1]{\schemeLink{http://}{#1}}
+\newcommand*{\httpsLink}[1]{\schemeLink{https://}{#1}}
+\newcommand*{\githubLink}[1]{\httpsLink{github.com/#1}}
+\newcommand*{\pypiLink}[1]{\httpsLink{pypi.org/project/#1}}
+\newcommand*{\npmLink}[1]{\httpsLink{npmjs.com/package/#1}}
+\newcommand*{\mavenLink}[1]{\httpsLink{search.maven.org/artifact/#1}}
+\newcommand*{\anonymousGithubLink}[1]{\httpsLink{anonymous.4open.science/r/#1}}
+\newcommand*{\zenodoLink}[1]{\httpsLink{zenodo.org/records/#1}}
+\newcommand*{\doiLink}[1]{\httpsLink{doi.org/#1}}
+\newcommand*{\orcidLink}[1]{\httpsLink{orcid.org/#1}}
 
-\newcommand{\maketoc}{
+\newcommand*{\Emph}[1]{{\sffamily\bfseries #1}}
+\newcommand*{\separator}{\nolinebreak\hspace{.5ex}\textperiodcentered{}\hspace{.5ex}}
+
+\newcommand*{\maketoc}{
   \pagenumbering{roman}
   % \thispagestyle{empty}
   % \addtocontents{toc}{\protect\thispagestyle{empty}}
@@ -183,7 +191,7 @@
   \pagenumbering{arabic}
   \setcounter{page}{1}
 }
-\newcommand{\makefrontmatter}[1]{
+\newcommand*{\makefrontmatter}[1]{
   \frontmatter
   \maketitle
   \tableofcontents
