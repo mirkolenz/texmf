@@ -28,7 +28,7 @@ fontsize=\small,
 tabsize=4,
 baselinestretch=1.0,
 xleftmargin=2em,
-% frame=lines,
+frame=lines,
 }
 \setmintedinline{}
 
@@ -42,17 +42,24 @@ xleftmargin=2em,
 basicstyle=\ttfamily\footnotesize,
 numbers=none,
 breaklines=true,
+breakatwhitespace=true,
+captionpos=t,
+frame=lines,
 tabsize=2,
 xleftmargin=0em
 }
 \else
 \lstset{
-basicstyle=\ttfamily\small,
+basicstyle=\ttfamily\scriptsize,
 numbers=left,
-numberstyle=\ttfamily\footnotesize,
+numberstyle=\ttfamily\tiny,
 breaklines=true,
+breakatwhitespace=true,
+captionpos=t,
+frame=lines,
 tabsize=4,
 xleftmargin=4em
 }
 \fi
 \fi
+
