@@ -1,15 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{_font_utopia}
+\ProvidesPackage{_font_utopia_gill}
 
 \ifluatexorxetex
 \setmainfont{Erewhon}
 \setsansfont[Scale=MatchUppercase]{Cabin}
-\setmonofont[Scale=MatchLowercase, Numbers={Lining, Monospaced}]{inconsolata}
+\setmonofont[Scale=MatchLowercase]{IBMPlexMono}
 \setmathfont{Erewhon Math}
 % \setmathfont[range=\setminus]{Asana Math}
 \else
 \RequirePackage[lining, tabular]{erewhon}
 \RequirePackage{cabin}
-\RequirePackage{inconsolata}
+\RequirePackage[scale=0.8]{plex-mono}
 % \RequirePackage{erwhon-math}
 \fi
+

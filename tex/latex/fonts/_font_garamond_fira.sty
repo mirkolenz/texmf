@@ -1,0 +1,19 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_font_garamond_fira}
+
+\ifluatexorxetex
+\setmainfont{EB Garamond}
+\setsansfont[
+  Scale=MatchUppercase,
+  BoldFont=* SemiBold,
+  BoldItalicFont=* SemiBold Italic
+]{Fira Sans}
+\setmonofont[Numbers={Lining, Monospaced}, Scale=MatchLowercase]{Fira Mono}
+\setmathfont{Garamond-Math.otf}
+\else
+\RequirePackage[lining, tabular]{ebgaramond}
+\RequirePackage[scale=0.9, lining, tabular, semibold]{FiraSans}
+\RequirePackage[scale=0.8]{FiraMono}
+\RequirePackage{ebgaramond-maths}
+\fi
+

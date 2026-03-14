@@ -1,0 +1,27 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_font_garamond_plex}
+
+\ifluatexorxetex
+\setmainfont{EB Garamond}
+
+\setsansfont[
+  Scale=MatchUppercase,
+  BoldFont=*-SemiBold,
+  BoldItalicFont=*-SemiBoldItalic,
+]{IBMPlexSans}
+
+\setmonofont[
+  Scale=MatchLowercase,
+  BoldFont=*-SemiBold,
+  BoldItalicFont=*-SemiBoldItalic,
+]{IBMPlexMono}
+
+\setmathfont{Garamond-Math.otf}
+
+\else
+\RequirePackage[lining, tabular]{ebgaramond}
+\RequirePackage[scale=0.9, semibold]{plex-sans}
+\RequirePackage[scale=0.8, semibold]{plex-mono}
+\RequirePackage{ebgaramond-maths}
+\fi
+

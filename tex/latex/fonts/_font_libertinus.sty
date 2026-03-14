@@ -1,0 +1,23 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_font_libertinus}
+
+\ifluatexorxetex
+\setmainfont[
+  BoldFont=* SemiBold,
+  BoldItalicFont=* SemiBold Italic,
+]{LibertinusSerif}
+
+\setsansfont[
+  BoldFont=* SemiBold,
+  BoldItalicFont=* SemiBold Italic
+]{LibertinusSans}
+
+\setmonofont{LibertinusMono}
+\setmathfont{LibertinusMath-Regular.otf}
+
+\else
+
+\RequirePackage{libertinus-type1}
+\RequirePackage[libertine]{newtxmath}
+\fi
+

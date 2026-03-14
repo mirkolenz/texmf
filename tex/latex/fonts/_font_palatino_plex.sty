@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_font_palatino_plex}
+
+\ifluatexorxetex
+\setmainfont{TeX Gyre Pagella}
+
+\setsansfont[
+  Scale=MatchUppercase,
+  BoldFont=*-SemiBold,
+  BoldItalicFont=*-SemiBoldItalic,
+]{IBMPlexSans}
+
+\setmonofont[
+  Scale=MatchLowercase,
+  BoldFont=*-SemiBold,
+  BoldItalicFont=*-SemiBoldItalic,
+]{IBMPlexMono}
+
+\setmathfont{TeX Gyre Pagella Math}
+\setmathfont[range=\setminus]{Asana Math}
+
+\else
+\RequirePackage{tgpagella}
+\RequirePackage[scale=0.9]{plex-sans}
+\RequirePackage[scale=0.8]{plex-mono}
+\RequirePackage{newpxmath}
+\fi
+

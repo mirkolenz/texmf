@@ -1,15 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{_font_garamond}
+\ProvidesPackage{_font_garamond_helvetica}
 
 \ifluatexorxetex
 \setmainfont{EB Garamond}
 \setsansfont[Scale=MatchUppercase]{TeX Gyre Heros}
-\setmonofont[Scale=MatchLowercase, Numbers={Lining, Monospaced}]{inconsolata}
+\setmonofont[Scale=MatchLowercase]{IBMPlexMono}
 \setmathfont{Garamond-Math.otf}
 \else
 \RequirePackage[lining, tabular]{ebgaramond}
 \RequirePackage[scale=0.9]{tgheros}
-\RequirePackage[scale=0.9]{inconsolata}
-% \RequirePackage[cmintegrals,cmbraces]{newtxmath}
+\RequirePackage[scale=0.8]{plex-mono}
 \RequirePackage{ebgaramond-maths}
 \fi
+
