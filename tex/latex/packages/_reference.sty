@@ -12,7 +12,7 @@
   \bibparams,
   maxbibnames=99, % show all authors in bibliography
   maxcitenames=2, % show 2 authors in citations
-  terseinits=true, % see below
+  terseinits=false, % see below
   giveninits=true, % show only initials
   uniquename=init, % sort using initials
   date=year, % show only the year
@@ -50,18 +50,32 @@
     \map{ % Hide all series editors
       \step[fieldset=editorb, null]
     }
+    \map{ % Write url field without protocol to custom field verba
+      \step[fieldsource=url, final]
+      \step[fieldset=verba, origfieldval, final]
+      \step[fieldsource=verba, match=\regexp{\A(ht|f)tp(s)?:\/\/}, replace={}]
+    }
   }
+}
+
+% Inject the custom field verba when printing the url to hide the protocol
+\DeclareFieldFormat{url}{%
+  \mkbibacro{URL}\addcolon\space\href{#1}{\nolinkurl{\thefield{verba}}}
 }
 
 \renewcommand*{\revsdnamepunct}{} % remove comma between last and first name
 \DeclareNameAlias{sortname}{family-given}
+\let\cite\autocite
+\newcommand*{\posscite}[1]{%
+  \citeauthor{#1}'s~\parencite{#1}%
+}
 
 \RequirePackage{acro}[=v2] % single: Ignore acronyms that occur only once
 \acsetup{
   hyperref=true,
   mark-as-used=first,
   short-format={},
-  long-format={\itshape},
+  long-format={},
   cite-cmd={\autocite},
   group-cite-cmd={\autocite},
 }
@@ -95,8 +109,7 @@
     \setlength{\leftmargin}{\labelwidth}
     \setlength{\labelsep}{\biblabelsep - 1em}
     \addtolength{\leftmargin}{\labelsep}
-    \setlength{
-  \itemsep}{\bibitemsep + 1em}
+    \setlength{\itemsep}{\bibitemsep + 1em}
     \setlength{\parsep}{\bibparsep}
   }
 }
@@ -104,3 +117,4 @@
 {
 \item}
 \fi
+
