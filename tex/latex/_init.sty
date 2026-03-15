@@ -118,12 +118,32 @@
 \fi
 
 \RequirePackage{zref-clever}
+
 \let\cref\zcref
 \let\Cref\zcref
+
 \if@beamer
 \else
 \zcsetup{noabbrev, cap}
 \fi
+
+\zcLanguageSetup{english}{
+  pairsep  = { and },
+  listsep  = {, },
+  lastsep  = {, and },
+  tpairsep = { and },
+  tlistsep = {, },
+  tlastsep = {, and }
+}
+
+\zcLanguageSetup{german}{
+  pairsep  = { und },
+  listsep  = {, },
+  lastsep  = { und },
+  tpairsep = { und },
+  tlistsep = {, },
+  tlastsep = { und }
+}
 
 \newcommand*{\init}{
   % \if@koma
