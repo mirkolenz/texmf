@@ -60,6 +60,9 @@
 \sisetup{per-mode=fraction}
 \RequirePackage{xfrac}
 
+% https://github.com/schlcht/microtype/issues/53
+\RequirePackage{silence}
+\WarningFilter{latex}{Command \showhyphens}
 \RequirePackage[final, verbose=silent]{microtype}
 \newcommand*{\numberstyle}[1]{}
 
