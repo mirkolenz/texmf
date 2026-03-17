@@ -6,60 +6,44 @@
 \RequirePackage[noend]{algpseudocode}
 \algrenewcommand\alglinenumber[1]{\footnotesize #1}
 
-\if@shellescape
-\RequirePackage{caption}
 \RequirePackage[newfloat=true]{minted}
-\usemintedstyle{manni} % bw
+\RequirePackage{caption}
 
+% tex-fmt: off
 \setminted{
+  style=borland, % https://pygments.org/styles/
   linenos,
   breaklines,
-breakafter=),
-breakbefore=.,
-% breakbytoken,
-% breakbytokenanywhere,
-breakaftersymbolpre=,
-breakbeforesymbolpre=,
-breakanywheresymbolpre=,
-mathescape,
-autogobble,
-framesep=0.5em,
-fontsize=\small,
-tabsize=4,
-baselinestretch=1.0,
-xleftmargin=2em,
-frame=lines,
+  breakafter=),
+  breakbefore=.,
+  % breakbytoken,
+  % breakbytokenanywhere,
+  breakaftersymbolpre=,
+  breakbeforesymbolpre=,
+  breakanywheresymbolpre=,
+  mathescape,
+  autogobble,
+  % framesep=2pt,
+  fontsize=\scriptsize,
+  tabsize=4,
+  baselinestretch=1.0,
+  xleftmargin=2em,
+  frame=lines,
+  vspace=0pt,
 }
+% tex-fmt: on
+
+% default settings for inline code
 \setmintedinline{}
 
+% styling of line numbers in minted
 \renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
 
+% support for page breaks in listings
 \newenvironment{longlisting}{\captionsetup{type=listing}}{}
-\else
-\RequirePackage{listings}
-\if@beamer
-\lstset{
-basicstyle=\ttfamily\footnotesize,
-numbers=none,
-breaklines=true,
-breakatwhitespace=true,
-captionpos=t,
-frame=lines,
-tabsize=2,
-xleftmargin=0em
-}
-\else
-\lstset{
-basicstyle=\ttfamily\scriptsize,
-numbers=left,
-numberstyle=\ttfamily\tiny,
-breaklines=true,
-breakatwhitespace=true,
-captionpos=t,
-frame=lines,
-tabsize=4,
-xleftmargin=4em
-}
-\fi
-\fi
+
+% allow references to line numbers
+% https://tex.stackexchange.com/a/692526
+\AddToHook{env/minted/begin}{\zcsetup{currentcounter=FancyVerbLine}}
+\zcsetup{countertype={FancyVerbLine=line}}
 
