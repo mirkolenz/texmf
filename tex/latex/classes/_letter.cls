@@ -22,4 +22,3 @@
   enlargefirstpage,
   locfield=wide
 ]{\baseclass}
-

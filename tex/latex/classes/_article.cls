@@ -10,4 +10,3 @@
 \ProcessOptions\relax
 
 \LoadClass{\baseclass}
-
