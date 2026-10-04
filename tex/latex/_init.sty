@@ -1,42 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_init}
 
-\RequirePackage{ifxetex,ifluatex}
+\RequirePackage{iftex}
 \newif\ifluatexorxetex
-\newif\ifpdftex
-\ifxetex
-\luatexorxetextrue
-\pdftexfalse
-\else
-\ifluatex
-\luatexorxetextrue
-\pdftexfalse
-\else
-\luatexorxetexfalse
-\pdftextrue
-\fi
-\fi
+\ifpdftex\else\luatexorxetextrue\fi
 
 \newif\if@de\@defalse
 \newif\if@beamer\@beamerfalse
-\newif\if@overleaf\@overleaffalse
-\newif\if@koma\@komafalse
-\newif\if@shellescape\@shellescapefalse
 
-\DeclareOption{koma}{
-  \KOMAoptions{
-    % DIV=calc
-  }
-  \@komatrue
-}
 \DeclareOption{de}{\@detrue}
 \DeclareOption{beamer}{\@beamertrue}
-\DeclareOption{overleaf}{\@overleaftrue}
-\DeclareOption{shellescape}{\@shellescapetrue}
-\DeclareOption{nonumbering}{
-  \setcounter{secnumdepth}{0}
-  % \setcounter{tocdepth}{0}
-}
+\DeclareOption{nonumbering}{\setcounter{secnumdepth}{0}}
 \ProcessOptions\relax
 
 \newcommand*{\languageselection}{}
@@ -53,17 +27,15 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
-\RequirePackage{amstext}
 \RequirePackage{amssymb}
 \RequirePackage{siunitx}
 \RequirePackage{fmtcount} % equivalent to \usepackage[super]{nth}
 \sisetup{per-mode=fraction}
 \RequirePackage{xfrac}
 
-% https://github.com/schlcht/microtype/issues/53
-\RequirePackage{silence}
-\WarningFilter{latex}{Command \showhyphens}
 \RequirePackage[final, verbose=silent]{microtype}
+% Extra line breaking pass for paragraphs that would otherwise be overfull
+\setlength{\emergencystretch}{3em}
 \newcommand*{\numberstyle}[1]{}
 
 \ifluatexorxetex
@@ -72,21 +44,17 @@
 \defaultfontfeatures{
   Ligatures=Common,
   Numbers={Lining, Monospaced}
-  % Lining, OldStyle
-  % Proportional, Monospaced
 }
 
 \renewcommand{\numberstyle}[1]{\addfontfeatures{Numbers={#1}}}
 \else
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \fi
 
 \RequirePackage{mathtools} % load after unicode-math
 
-\RequirePackage{fontawesome5}
+\RequirePackage{fontawesome7}
 
-\PassOptionsToPackage{unicode}{hyperref}
 \if@beamer
 \else
 \PassOptionsToPackage{pdfusetitle}{hyperref}
@@ -94,19 +62,11 @@
 
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{hyperref}
-\hypersetup{
-  % colorlinks,
-  % linkcolor={red!50!black},
-  % citecolor={blue!50!black},
-  % urlcolor={blue!80!black},
-  hidelinks
-}
+\hypersetup{hidelinks}
 \RequirePackage{xurl}
 \urlstyle{same}
 
 \RequirePackage{graphicx}
-\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg,.gif}
-\graphicspath{{img/}}
 
 \RequirePackage{fvextra} % needed by minted, must be loaded before csquotes
 \RequirePackage[autostyle=true]{csquotes}
@@ -149,45 +109,6 @@
   tlastsep = { und }
 }
 
-\newcommand*{\init}{
-  % \if@koma
-  %   \recalctypearea
-  % \fi
-
-  \if@de
-  % isonums
-  \usepackage{ziffer}
-  \fi
-}
-
-% % CVPR style package
-% \RequirePackage{xspace}
-% % Add a period to the end of an abbreviation unless there's one already, then \xspace.
-% \DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
-% \newcommand*{\@onedot}{\ifx\@let@token.\else.\null\fi\xspace}
-
-% \newcommand*{\eg}{\emph{e.g}\onedot}
-% \newcommand*{\Eg}{\emph{E.g}\onedot}
-
-% \newcommand*{\zb}{\emph{z.\ B.}\onedot}
-
-% \newcommand*{\ie}{\emph{i.e}\onedot}
-% \newcommand*{\Ie}{\emph{I.e}\onedot}
-
-% \newcommand*{\cf}{\emph{c.f}\onedot}
-% \newcommand*{\Cf}{\emph{C.f}\onedot}
-
-% \newcommand*{\etc}{\emph{etc}\onedot}
-% \newcommand*{\vs}{\emph{vs}\onedot}
-
-% \newcommand*{\wrt}{w.r.t\onedot}
-% \newcommand*{\dof}{d.o.f\onedot}
-% \newcommand*{\etal}{\emph{et al}\onedot}
-
-% \setstretch{1.2}
-% \setlength{\parindent}{0em}
-% \setlength{\parskip}{.5em}
-
 \newcommand*{\schemeLink}[2]{\href{#1#2}{\nolinkurl{#2}}}
 \newcommand*{\mailtoLink}[1]{\schemeLink{mailto:}{#1}}
 \newcommand*{\telLink}[1]{\schemeLink{tel:}{#1}}
@@ -207,8 +128,6 @@
 
 \newcommand*{\maketoc}{
   \pagenumbering{roman}
-  % \thispagestyle{empty}
-  % \addtocontents{toc}{\protect\thispagestyle{empty}}
   \tableofcontents
   \cleardoublepage
   \pagenumbering{arabic}

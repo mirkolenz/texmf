@@ -1,7 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_code}
 
-\RequirePackage[chapter]{algorithm}
+\RequirePackage{newfloat}
+\DeclareFloatingEnvironment[fileext=loa, listname={List of Algorithms}, name=Algorithm]{algorithm}
 
 \RequirePackage[noend]{algpseudocode}
 \algrenewcommand\alglinenumber[1]{\footnotesize #1}
@@ -16,14 +17,11 @@
   breaklines,
   breakafter=),
   breakbefore=.,
-  % breakbytoken,
-  % breakbytokenanywhere,
   breakaftersymbolpre=,
   breakbeforesymbolpre=,
   breakanywheresymbolpre=,
   mathescape,
   autogobble,
-  % framesep=2pt,
   fontsize=\scriptsize,
   tabsize=4,
   baselinestretch=1.0,

@@ -12,18 +12,13 @@
   \bibparams,
   maxbibnames=99, % show all authors in bibliography
   maxcitenames=2, % show 2 authors in citations
-  terseinits=false, % see below
+  terseinits=false,
   giveninits=true, % show only initials
   uniquename=init, % sort using initials
   date=year, % show only the year
   isbn=false, % hide isbn
   sortcites=true, % sort citations if multiple are given
 ]{biblatex}
-
-% terseinits=true means the following three commands
-% \renewrobustcmd*{\bibinitperiod}{} % remove period after initial
-% \renewrobustcmd*{\bibinitdelim}{} % remove space between initials
-% \renewrobustcmd*{\bibinithyphendelim}{} % remove hyphen between initials
 
 % Show only one of the following: DOI, ePrint, URL
 \DeclareSourcemap{
@@ -63,6 +58,14 @@
   \mkbibacro{URL}\addcolon\space\href{#1}{\nolinkurl{\thefield{verba}}}
 }
 
+% Entries with long titles and urls often produce slightly loose lines, only report the worst ones
+\AtBeginBibliography{\hbadness=9999}
+
+% Allow line breaks after numbers and letters in urls as a last resort
+\setcounter{biburlnumpenalty}{3000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
 \renewcommand*{\revsdnamepunct}{} % remove comma between last and first name
 \DeclareNameAlias{sortname}{family-given}
 \let\cite\autocite
@@ -70,7 +73,7 @@
   \citeauthor{#1}'s~\parencite{#1}%
 }
 
-\RequirePackage{acro}[=v2] % single: Ignore acronyms that occur only once
+\RequirePackage{acro}[=v2] % v3 has performance regressions
 \acsetup{
   hyperref=true,
   mark-as-used=first,
@@ -88,7 +91,6 @@
 
 \if@beamer
 \renewcommand*{\bibfont}{\footnotesize}
-% \setbeamertemplate{bibliography item}[text]
 
 \setbeamertemplate{bibliography item}{
   \ifboolexpr{
