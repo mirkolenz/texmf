@@ -4,6 +4,8 @@
 \RequirePackage[automark]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 
+\DeclareOption{center}{\clearpairofpagestyles\chead{\leftmark}\cfoot*{\pagemark}} % one-sided look in two-sided layouts, leftmark is the top-level heading
+\DeclareOption{outer}{\clearpairofpagestyles\ohead{\headmark}\ofoot*{\pagemark}} % declared after center to take precedence
 \DeclareOption{title}{\chead{\@title}\ihead{}\ohead{}}
 \DeclareOption{author}{\chead{\@author}\ihead{}\ohead{}}
 \DeclareOption{date}{\chead{\@date}\ihead{}\ohead{}}
