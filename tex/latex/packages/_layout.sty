@@ -3,6 +3,8 @@
 
 \RequirePackage[automark]{scrlayer-scrpage}
 \pagestyle{scrheadings}
+% the top level sets both marks, otherwise right pages without lower levels (e.g., the bibliography) have an empty header
+\@ifundefined{chapter}{\automark*[section]{section}}{\automark*[chapter]{chapter}}
 
 \DeclareOption{center}{\clearpairofpagestyles\chead{\leftmark}\cfoot*{\pagemark}} % one-sided look in two-sided layouts, leftmark is the top-level heading
 \DeclareOption{outer}{\clearpairofpagestyles\ohead{\headmark}\ofoot*{\pagemark}} % declared after center to take precedence
