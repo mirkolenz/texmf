@@ -87,6 +87,19 @@
 \acsetup{foreign-format = {\scshape}}
 \ExplSyntaxOn
 \prop_new:N \l__acro_foreign_format_prop
+
+% \acoverride{id}{keys} replaces the citation of an acronym (empty keys remove it),
+% \acrestore reverts to the declared citations and also runs on \acresetall
+\prop_new:N \g__reference_acro_cite_prop
+\AtBeginDocument { \prop_gset_eq:NN \g__reference_acro_cite_prop \l__acro_citation_prop }
+\NewDocumentCommand \acoverride { m m }
+{
+  \tl_if_empty:nTF {#2}
+  { \prop_remove:Nn \l__acro_citation_prop {#1} }
+  { \prop_put:Nnn \l__acro_citation_prop {#1} {#2} }
+}
+\NewDocumentCommand \acrestore {} { \prop_set_eq:NN \l__acro_citation_prop \g__reference_acro_cite_prop }
+\AddToHook { cmd/acresetall/before } { \acrestore }
 \ExplSyntaxOff
 
 \if@beamer
